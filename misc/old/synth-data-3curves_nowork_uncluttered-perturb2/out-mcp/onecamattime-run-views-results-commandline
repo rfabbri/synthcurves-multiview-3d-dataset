@@ -1,0 +1,1 @@
+mcp -views 12,13,14 -onecam -curvesketch csk| tee out-mcp/onecamattime-run-views-results

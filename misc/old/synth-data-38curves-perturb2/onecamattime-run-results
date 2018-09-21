@@ -1,0 +1,472 @@
+
+Reading ./mcs_img_list.txt
+Reading ./mcs_edg_list.txt
+Reading ./mcs_frag_list.txt
+Dpath:
+nviews: 20
+path data view[0]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0000.png
+edg_fname: frame_0000.edg.gz
+frag_fname: frame_0000.cemv.gz
+
+path data view[end]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0019.png
+edg_fname: frame_0019.edg.gz
+frag_fname: frame_0019.cemv.gz
+
+
+read_dir: Reading num_curves
+read_dir: Reading 3d curves
+myreadv: reading curves with prefix ./csk/crvs/rec-3dcurve-
+myreadv: reading ./csk/crvs/rec-3dcurve-000-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-000-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-001-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-001-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-002-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-002-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-003-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-003-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-004-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-004-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-005-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-005-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-006-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-006-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-007-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-007-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-008-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-008-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-009-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-009-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-010-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-010-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-011-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-011-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-012-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-012-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-013-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-013-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-014-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-014-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-015-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-015-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-016-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-016-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-017-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-017-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-018-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-018-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-019-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-019-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-020-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-020-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-021-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-021-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-022-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-022-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-023-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-023-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-024-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-024-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-025-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-025-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-026-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-026-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-027-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-027-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-028-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-028-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-029-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-029-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-030-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-030-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-031-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-031-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-032-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-032-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-033-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-033-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-034-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-034-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-035-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-035-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-036-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-036-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-037-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-037-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-038-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-038-tangents.dat
+read_dir: Reading attributes
+attr_.size(): 39 ncurves: 39
+Pruning 39 curves with cost < 0
+Pruned down to 39 curves
+Initializing bundle adjustment driver
+dvcpl_bundle_adjust_driver: views successfully chained
+Inliers for curve[0]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[1]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[2]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[3]: 0 19 1 2 3 4 6 7 10 12 13 14 15 16 17 18 
+Inliers for curve[4]: 0 19 1 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[5]: 0 19 3 4 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[6]: 0 19 1 2 3 4 5 6 7 8 9 11 12 15 17 
+Inliers for curve[7]: 0 19 1 3 4 6 12 15 17 
+Inliers for curve[8]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[9]: 0 19 1 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[10]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[11]: 0 19 3 6 9 10 11 12 13 14 15 16 
+Inliers for curve[12]: 0 19 1 3 4 6 15 
+Inliers for curve[13]: 0 19 1 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[14]: 0 19 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[15]: 0 19 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[16]: 0 19 3 4 6 7 8 10 11 12 13 14 15 16 17 
+Inliers for curve[17]: 0 19 2 3 6 8 9 10 11 12 13 15 16 17 
+Inliers for curve[18]: 0 19 3 15 17 
+Inliers for curve[19]: 0 19 3 4 6 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[20]: 0 19 12 13 14 15 17 18 
+Inliers for curve[21]: 0 19 3 6 12 15 18 
+Inliers for curve[22]: 0 19 3 6 9 10 11 12 13 14 15 16 17 
+Inliers for curve[23]: 0 19 3 6 15 16 17 
+Inliers for curve[24]: 0 19 1 2 3 6 12 14 15 16 17 18 
+Inliers for curve[25]: 0 19 3 4 6 7 9 10 12 13 15 16 17 
+Inliers for curve[26]: 0 19 3 6 12 15 17 
+Inliers for curve[27]: 0 19 1 3 6 15 
+Inliers for curve[28]: 0 19 1 3 4 6 7 15 
+Inliers for curve[29]: 0 19 15 
+Inliers for curve[30]: 0 19 1 2 3 4 5 6 7 8 9 10 12 13 14 15 16 17 
+Inliers for curve[31]: 0 19 3 6 15 17 
+Inliers for curve[32]: 0 19 3 6 12 15 
+Inliers for curve[33]: 0 19 3 6 15 16 17 
+Inliers for curve[34]: 0 19 1 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[35]: 0 19 1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18 
+Inliers for curve[36]: 0 19 1 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+Inliers for curve[37]: 0 19 1 2 3 4 5 6 7 9 13 15 16 17 18 
+Inliers for curve[38]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Number of views being optimized: 20
+Optimizing 39 curves across 20 views.
+Running stereo driver.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0000.png
+No offset file ./frame_0000.origin
+No scaling file ./frame_0000.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.383088 1.60537e-15 -0.923712 0
+0.10945 -0.992955 0.0453917 0
+-0.917205 -0.118489 -0.380389 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0001.png
+No offset file ./frame_0001.origin
+No scaling file ./frame_0001.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.324392 1.62038e-15 -0.945923 0
+0.112081 -0.992955 0.0384369 0
+-0.939259 -0.118489 -0.322107 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0002.png
+No offset file ./frame_0002.origin
+No scaling file ./frame_0002.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.237239 1.61104e-15 -0.971451 0
+0.115106 -0.992955 0.0281102 0
+-0.964608 -0.118489 -0.235567 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0003.png
+No offset file ./frame_0003.origin
+No scaling file ./frame_0003.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.109009 1.60485e-15 -0.994041 0
+0.117783 -0.992955 0.0129164 0
+-0.987038 -0.118489 -0.108242 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0004.png
+No offset file ./frame_0004.origin
+No scaling file ./frame_0004.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.0162935 1.62246e-15 -0.999867 0
+0.118473 -0.992955 -0.00193061 0
+-0.992824 -0.118489 0.0161788 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0005.png
+No offset file ./frame_0005.origin
+No scaling file ./frame_0005.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.129635 1.61795e-15 -0.991562 0
+0.117489 -0.992955 -0.0153603 0
+-0.984577 -0.118489 0.128721 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0006.png
+No offset file ./frame_0006.origin
+No scaling file ./frame_0006.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.209735 1.61652e-15 -0.977758 0
+0.115854 -0.992955 -0.0248512 0
+-0.97087 -0.118489 0.208257 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0007.png
+No offset file ./frame_0007.origin
+No scaling file ./frame_0007.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.325644 1.6252e-15 -0.945492 0
+0.11203 -0.992955 -0.0385852 0
+-0.938832 -0.118489 0.32335 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0008.png
+No offset file ./frame_0008.origin
+No scaling file ./frame_0008.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.428943 1.61146e-15 -0.903332 0
+0.107035 -0.992955 -0.050825 0
+-0.896968 -0.118489 0.425921 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0009.png
+No offset file ./frame_0009.origin
+No scaling file ./frame_0009.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.508419 1.6194e-15 -0.86111 0
+0.102032 -0.992955 -0.0602421 0
+-0.855043 -0.118489 0.504838 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0010.png
+No offset file ./frame_0010.origin
+No scaling file ./frame_0010.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.608822 1.61463e-15 -0.793307 0
+0.0939981 -0.992955 -0.0721387 0
+-0.787718 -0.118489 0.604533 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0011.png
+No offset file ./frame_0011.origin
+No scaling file ./frame_0011.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.643191 1.6127e-15 -0.765706 0
+0.0907277 -0.992955 -0.076211 0
+-0.760312 -0.118489 0.63866 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0012.png
+No offset file ./frame_0012.origin
+No scaling file ./frame_0012.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.735925 1.61361e-15 -0.677064 0
+0.0802246 -0.992955 -0.0871989 0
+-0.672294 -0.118489 0.73074 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0013.png
+No offset file ./frame_0013.origin
+No scaling file ./frame_0013.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.822193 1.61631e-15 -0.569209 0
+0.0674449 -0.992955 -0.0974208 0
+-0.565199 -0.118489 0.816401 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0014.png
+No offset file ./frame_0014.origin
+No scaling file ./frame_0014.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.878326 1.61439e-15 -0.478063 0
+0.0566452 -0.992955 -0.104072 0
+-0.474695 -0.118489 0.872138 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0015.png
+No offset file ./frame_0015.origin
+No scaling file ./frame_0015.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.91368 1.61534e-15 -0.406434 0
+0.048158 -0.992955 -0.108261 0
+-0.403571 -0.118489 0.907243 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0016.png
+No offset file ./frame_0016.origin
+No scaling file ./frame_0016.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.955696 1.61596e-15 -0.294355 0
+0.0348778 -0.992955 -0.113239 0
+-0.292281 -0.118489 0.948964 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0017.png
+No offset file ./frame_0017.origin
+No scaling file ./frame_0017.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.979433 1.61431e-15 -0.201771 0
+0.0239076 -0.992955 -0.116052 0
+-0.20035 -0.118489 0.972533 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0018.png
+No offset file ./frame_0018.origin
+No scaling file ./frame_0018.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.990368 1.61387e-15 -0.138461 0
+0.0164061 -0.992955 -0.117348 0
+-0.137486 -0.118489 0.983391 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0019.png
+No offset file ./frame_0019.origin
+No scaling file ./frame_0019.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.999813 1.61429e-15 -0.0193174 0
+0.0022889 -0.992955 -0.118467 0
+-0.0191813 -0.118489 0.99277 0
+0 0 0 1
+
+#edgels: 5103
+Finished with edge map loading.
+Initial average, max, med error: 0.860042, 4.23615, 0.628204
+Final average, max, med error: 0.859893, 4.23599, 0.628326
+Initial average, max, med error: 0.350041, 1.86906, 0.259367
+Final average, max, med error: 0.349879, 1.86898, 0.259432
+Initial average, max, med error: 0.477974, 2.2728, 0.373225
+Final average, max, med error: 0.473964, 2.16379, 0.35412
+Initial average, max, med error: 0.135492, 1.89877, 0.0922064
+Final average, max, med error: 0.135327, 1.88615, 0.0915323
+Initial average, max, med error: 0.518506, 2.58496, 0.307357
+Final average, max, med error: 0.518303, 2.58553, 0.291713
+Initial average, max, med error: 0.425121, 2.54733, 0.317768
+Final average, max, med error: 0.418672, 2.43378, 0.312091
+Initial average, max, med error: 0.117418, 1.90908, 0.0785499
+Final average, max, med error: 0.117357, 1.90951, 0.0785505
+Initial average, max, med error: 0.406007, 1.99715, 0.286244
+Final average, max, med error: 0.403851, 1.9811, 0.282142
+Initial average, max, med error: 0.490575, 2.12483, 0.365264
+Final average, max, med error: 0.48615, 2.1284, 0.362694
+Initial average, max, med error: 0.213178, 1.88361, 0.16057
+Final average, max, med error: 0.213248, 1.89388, 0.166365
+Initial average, max, med error: 0.470941, 2.19272, 0.37673
+Final average, max, med error: 0.46419, 2.17556, 0.363204
+Initial average, max, med error: 0.497913, 2.42432, 0.417241
+Final average, max, med error: 0.493486, 2.45634, 0.420641
+Initial average, max, med error: 0.239374, 1.83786, 0.166125
+Final average, max, med error: 0.239513, 1.81241, 0.173447
+Initial average, max, med error: 0.42549, 1.99887, 0.367676
+Final average, max, med error: 0.422983, 1.9853, 0.346874
+Initial average, max, med error: 0.503923, 2.59391, 0.401309
+Final average, max, med error: 0.497528, 1.94158, 0.395387
+Initial average, max, med error: 0.0517057, 1.45351, 0.0354982
+Final average, max, med error: 0.0513841, 1.45065, 0.0352155
+Initial average, max, med error: 0.403877, 1.99891, 0.294488
+Final average, max, med error: 0.3626, 1.84264, 0.276736
+Initial average, max, med error: 0.236913, 1.84927, 0.170067
+Final average, max, med error: 0.232706, 1.85707, 0.16684
+Initial average, max, med error: 0.496252, 3.13765, 0.445073
+Final average, max, med error: 0.478658, 2.99784, 0.423154
+Initial average, max, med error: 0.620802, 2.79158, 0.413715
+Final average, max, med error: 0.616332, 3.27344, 0.431051
+Writing camera: intrinsic/extrinsic, dir = out-mcp/
+Writing extrinsics file: out-mcp//frame_0000.extrinsic
+Writing extrinsics file: out-mcp//frame_0001.extrinsic
+Writing extrinsics file: out-mcp//frame_0002.extrinsic
+Writing extrinsics file: out-mcp//frame_0003.extrinsic
+Writing extrinsics file: out-mcp//frame_0004.extrinsic
+Writing extrinsics file: out-mcp//frame_0005.extrinsic
+Writing extrinsics file: out-mcp//frame_0006.extrinsic
+Writing extrinsics file: out-mcp//frame_0007.extrinsic
+Writing extrinsics file: out-mcp//frame_0008.extrinsic
+Writing extrinsics file: out-mcp//frame_0009.extrinsic
+Writing extrinsics file: out-mcp//frame_0010.extrinsic
+Writing extrinsics file: out-mcp//frame_0011.extrinsic
+Writing extrinsics file: out-mcp//frame_0012.extrinsic
+Writing extrinsics file: out-mcp//frame_0013.extrinsic
+Writing extrinsics file: out-mcp//frame_0014.extrinsic
+Writing extrinsics file: out-mcp//frame_0015.extrinsic
+Writing extrinsics file: out-mcp//frame_0016.extrinsic
+Writing extrinsics file: out-mcp//frame_0017.extrinsic
+Writing extrinsics file: out-mcp//frame_0018.extrinsic
+Writing extrinsics file: out-mcp//frame_0019.extrinsic
+vgui::uninit called

@@ -1,0 +1,102 @@
+Initial average, max, med error: 0.860042, 4.23615, 0.628204
+Final average, max, med error: 0.859893, 4.23599, 0.628326
+Final average, max, med error: 0.924923, 3.86295, 0.772975
+Very final average error: 0.859893
+---
+Initial average, max, med error: 0.350041, 1.86906, 0.259367
+Final average, max, med error: 0.349879, 1.86898, 0.259432
+Final average, max, med error: 0.0605769, 1.86384, 0.0430338
+Very final average error: 0.0605769
+---
+Initial average, max, med error: 0.477974, 2.2728, 0.373225
+Final average, max, med error: 0.473964, 2.16379, 0.35412
+Final average, max, med error: 1.16495, 4.21441, 0.897269
+Very final average error: 0.473964
+---
+Initial average, max, med error: 0.135492, 1.89877, 0.0922064
+Final average, max, med error: 0.135327, 1.88615, 0.0915323
+Final average, max, med error: 0.1428, 1.878, 0.0956579
+Very final average error: 0.135327
+---
+Initial average, max, med error: 0.518506, 2.58496, 0.307357
+Final average, max, med error: 0.518303, 2.58553, 0.291713
+Final average, max, med error: 0.94781, 4.49502, 0.735039
+Very final average error: 0.518303
+---
+Initial average, max, med error: 0.425121, 2.54733, 0.317768
+Final average, max, med error: 0.418672, 2.43378, 0.312091
+Final average, max, med error: 0.366472, 3.32697, 0.183574
+Very final average error: 0.366472
+---
+Initial average, max, med error: 0.117418, 1.90908, 0.0785499
+Final average, max, med error: 0.117357, 1.90951, 0.0785505
+Final average, max, med error: 0.15578, 1.88185, 0.105513
+Very final average error: 0.117357
+---
+Initial average, max, med error: 0.406007, 1.99715, 0.286244
+Final average, max, med error: 0.403851, 1.9811, 0.282142
+Final average, max, med error: 0.34766, 2.11253, 0.210146
+Very final average error: 0.34766
+---
+Initial average, max, med error: 0.490575, 2.12483, 0.365264
+Final average, max, med error: 0.48615, 2.1284, 0.362694
+Final average, max, med error: 0.772835, 3.05021, 0.654667
+Very final average error: 0.48615
+---
+Initial average, max, med error: 0.213178, 1.88361, 0.16057
+Final average, max, med error: 0.213248, 1.89388, 0.166365
+Final average, max, med error: 0.205923, 1.727, 0.138396
+Very final average error: 0.205923
+---
+Initial average, max, med error: 0.470941, 2.19272, 0.37673
+Final average, max, med error: 0.46419, 2.17556, 0.363204
+Final average, max, med error: 0.572646, 2.60527, 0.493176
+Very final average error: 0.46419
+---
+Initial average, max, med error: 0.497913, 2.42432, 0.417241
+Final average, max, med error: 0.493486, 2.45634, 0.420641
+Final average, max, med error: 0.891504, 2.78547, 0.759968
+Very final average error: 0.493486
+---
+Initial average, max, med error: 0.239374, 1.83786, 0.166125
+Final average, max, med error: 0.239513, 1.81241, 0.173447
+Final average, max, med error: 0.000221927, 0.000772557, 0.00019788
+Very final average error: 0.000221927
+---
+Initial average, max, med error: 0.42549, 1.99887, 0.367676
+Final average, max, med error: 0.422983, 1.9853, 0.346874
+Final average, max, med error: 0.356254, 1.7463, 0.292951
+Very final average error: 0.356254
+---
+Initial average, max, med error: 0.503923, 2.59391, 0.401309
+Final average, max, med error: 0.497528, 1.94158, 0.395387
+Final average, max, med error: 0.564121, 2.75598, 0.455018
+Very final average error: 0.497528
+---
+Initial average, max, med error: 0.0517057, 1.45351, 0.0354982
+Final average, max, med error: 0.0513841, 1.45065, 0.0352155
+Final average, max, med error: 0.000643049, 0.0297337, 0.000535814
+Very final average error: 0.000643049
+---
+Initial average, max, med error: 0.403877, 1.99891, 0.294488
+Final average, max, med error: 0.3626, 1.84264, 0.276736
+Final average, max, med error: 0.000215643, 0.000672393, 0.000192885
+Very final average error: 0.000215643
+---
+Initial average, max, med error: 0.236913, 1.84927, 0.170067
+Final average, max, med error: 0.232706, 1.85707, 0.16684
+Final average, max, med error: 0.000220068, 0.000713683, 0.000199159
+Very final average error: 0.000220068
+---
+Initial average, max, med error: 0.496252, 3.13765, 0.445073
+Final average, max, med error: 0.478658, 2.99784, 0.423154
+Final average, max, med error: 0.0615166, 0.836734, 0.0398021
+Very final average error: 0.0615166
+---
+Initial average, max, med error: 0.620802, 2.79158, 0.413715
+Final average, max, med error: 0.616332, 3.27344, 0.431051
+Final average, max, med error: 0.000262158, 0.00110107, 0.000234226
+Very final average error: 0.000262158
+---
+Writing camera: intrinsic/extrinsic, dir = out-mcp/
+Writing extrinsics file: out-mcp//frame_0000.extrinsic

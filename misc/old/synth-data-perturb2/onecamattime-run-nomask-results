@@ -1,0 +1,364 @@
+
+Reading ./mcs_img_list.txt
+Reading ./mcs_edg_list.txt
+Reading ./mcs_frag_list.txt
+Dpath:
+nviews: 20
+path data view[0]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0000.png
+edg_fname: frame_0000.edg.gz
+frag_fname: frame_0000.cemv.gz
+
+path data view[end]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0019.png
+edg_fname: frame_0019.edg.gz
+frag_fname: frame_0019.cemv.gz
+
+
+read_dir: Reading num_curves
+read_dir: Reading 3d curves
+myreadv: reading curves with prefix ./csk/crvs/rec-3dcurve-
+myreadv: reading ./csk/crvs/rec-3dcurve-00-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-00-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-01-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-01-tangents.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-02-points.dat
+myreadv: reading ./csk/crvs/rec-3dcurve-02-tangents.dat
+read_dir: Reading attributes
+attr_.size(): 3 ncurves: 3
+Pruning 3 curves with cost < 0
+Pruned down to 3 curves
+Initializing bundle adjustment driver
+dvcpl_bundle_adjust_driver: views successfully chained
+Inliers for curve[0]: 0 19 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Inliers for curve[1]: 0 19 1 3 4 7 8 10 11 13 15 
+Inliers for curve[2]: 0 19 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Number of views being optimized: 20
+Optimizing 3 curves across 20 views.
+Running stereo driver.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0000.png
+No offset file ./frame_0000.origin
+No scaling file ./frame_0000.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.422627 1.60037e-15 -0.906304 0
+0.107387 -0.992955 0.0500767 0
+-0.899919 -0.118489 -0.41965 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0001.png
+No offset file ./frame_0001.origin
+No scaling file ./frame_0001.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.313064 1.61454e-15 -0.949732 0
+0.112533 -0.992955 0.0370947 0
+-0.943041 -0.118489 -0.310859 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0002.png
+No offset file ./frame_0002.origin
+No scaling file ./frame_0002.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.190271 1.62455e-15 -0.981732 0
+0.116324 -0.992955 0.022545 0
+-0.974816 -0.118489 -0.18893 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0003.png
+No offset file ./frame_0003.origin
+No scaling file ./frame_0003.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+0.0933604 1.61269e-15 -0.995632 0
+0.117971 -0.992955 0.0110622 0
+-0.988619 -0.118489 -0.0927027 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0004.png
+No offset file ./frame_0004.origin
+No scaling file ./frame_0004.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.0238277 1.62606e-15 -0.999716 0
+0.118455 -0.992955 -0.00282332 0
+-0.992673 -0.118489 0.0236599 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0005.png
+No offset file ./frame_0005.origin
+No scaling file ./frame_0005.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.136377 1.62447e-15 -0.990657 0
+0.117382 -0.992955 -0.0161592 0
+-0.983678 -0.118489 0.135416 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0006.png
+No offset file ./frame_0006.origin
+No scaling file ./frame_0006.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.218201 1.61763e-15 -0.975904 0
+0.115634 -0.992955 -0.0258544 0
+-0.969029 -0.118489 0.216664 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0007.png
+No offset file ./frame_0007.origin
+No scaling file ./frame_0007.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.318098 1.61342e-15 -0.948058 0
+0.112334 -0.992955 -0.0376911 0
+-0.941379 -0.118489 0.315857 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0008.png
+No offset file ./frame_0008.origin
+No scaling file ./frame_0008.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.424313 1.61634e-15 -0.905516 0
+0.107294 -0.992955 -0.0502763 0
+-0.899137 -0.118489 0.421323 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0009.png
+No offset file ./frame_0009.origin
+No scaling file ./frame_0009.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.50488 1.61842e-15 -0.86319 0
+0.102278 -0.992955 -0.0598227 0
+-0.857109 -0.118489 0.501323 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0010.png
+No offset file ./frame_0010.origin
+No scaling file ./frame_0010.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.580215 1.61507e-15 -0.814464 0
+0.0965049 -0.992955 -0.068749 0
+-0.808726 -0.118489 0.576127 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0011.png
+No offset file ./frame_0011.origin
+No scaling file ./frame_0011.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.673748 1.62285e-15 -0.738962 0
+0.0875588 -0.992955 -0.0798317 0
+-0.733756 -0.118489 0.669001 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0012.png
+No offset file ./frame_0012.origin
+No scaling file ./frame_0012.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.730521 1.61536e-15 -0.68289 0
+0.080915 -0.992955 -0.0865587 0
+-0.67808 -0.118489 0.725375 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0013.png
+No offset file ./frame_0013.origin
+No scaling file ./frame_0013.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.827509 1.60635e-15 -0.561452 0
+0.0665259 -0.992955 -0.0980507 0
+-0.557497 -0.118489 0.82168 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0014.png
+No offset file ./frame_0014.origin
+No scaling file ./frame_0014.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.877553 1.61571e-15 -0.47948 0
+0.0568131 -0.992955 -0.10398 0
+-0.476102 -0.118489 0.871371 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0015.png
+No offset file ./frame_0015.origin
+No scaling file ./frame_0015.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.913102 1.61356e-15 -0.407732 0
+0.0483117 -0.992955 -0.108192 0
+-0.40486 -0.118489 0.906669 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0016.png
+No offset file ./frame_0016.origin
+No scaling file ./frame_0016.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.95599 1.61563e-15 -0.293399 0
+0.0347645 -0.992955 -0.113274 0
+-0.291332 -0.118489 0.949256 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0017.png
+No offset file ./frame_0017.origin
+No scaling file ./frame_0017.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.973495 1.61474e-15 -0.228708 0
+0.0270994 -0.992955 -0.115348 0
+-0.227097 -0.118489 0.966637 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0018.png
+No offset file ./frame_0018.origin
+No scaling file ./frame_0018.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.99185 1.61481e-15 -0.12741 0
+0.0150967 -0.992955 -0.117523 0
+-0.126512 -0.118489 0.984863 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0019.png
+No offset file ./frame_0019.origin
+No scaling file ./frame_0019.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.999652 1.61423e-15 -0.0263628 0
+0.0031237 -0.992955 -0.118448 0
+-0.0261771 -0.118489 0.99261 0
+0 0 0 1
+
+#edgels: 168
+Finished with edge map loading.
+Initial average, max, med error: 0.53756, 1.5274, 0.446361
+Final average, max, med error: 0.000289555, 0.000951867, 0.000254944
+Initial average, max, med error: 0.120697, 0.367447, 0.10851
+Final average, max, med error: 0.00020416, 0.000658519, 0.000168493
+Initial average, max, med error: 0.776732, 1.72375, 0.70374
+Final average, max, med error: 0.000209908, 0.000657258, 0.000175814
+Initial average, max, med error: 0.540299, 1.25572, 0.485707
+Final average, max, med error: 0.000211064, 0.000618003, 0.000190799
+Initial average, max, med error: 1.12959, 2.55824, 1.07195
+Final average, max, med error: 0.000216581, 0.000560008, 0.000188366
+Initial average, max, med error: 1.39282, 3.06144, 1.32008
+Final average, max, med error: 0.149737, 1.20761, 0.0738718
+Initial average, max, med error: 0.425934, 0.956891, 0.4131
+Final average, max, med error: 0.000888212, 0.0046167, 0.000416621
+Initial average, max, med error: 0.343379, 0.887277, 0.329567
+Final average, max, med error: 0.00517826, 0.144866, 0.00127776
+Initial average, max, med error: 0.580423, 1.69961, 0.556051
+Final average, max, med error: 0.00583712, 0.221741, 0.00110739
+Initial average, max, med error: 0.173991, 0.555485, 0.162711
+Final average, max, med error: 0.00690701, 0.20357, 0.00101219
+Initial average, max, med error: 0.190025, 0.878112, 0.167057
+Final average, max, med error: 0.000204475, 0.000632984, 0.000180598
+Initial average, max, med error: 0.1545, 0.567985, 0.143703
+Final average, max, med error: 0.000197419, 0.0006045, 0.000168515
+Initial average, max, med error: 0.350706, 1.30486, 0.322016
+Final average, max, med error: 0.000197278, 0.000607804, 0.000176717
+Initial average, max, med error: 0.677618, 2.46399, 0.62096
+Final average, max, med error: 0.000188778, 0.00058789, 0.000160016
+Initial average, max, med error: 0.502988, 1.8584, 0.477926
+Final average, max, med error: 0.000210132, 0.00056631, 0.000183241
+Initial average, max, med error: 0.000285976, 0.0010397, 0.000224022
+Final average, max, med error: 0.000208779, 0.000587314, 0.000179172
+Initial average, max, med error: 0.367554, 1.36038, 0.318898
+Final average, max, med error: 0.00553099, 0.254441, 0.00127789
+Initial average, max, med error: 0.431433, 1.57264, 0.362063
+Final average, max, med error: 0.000209328, 0.000531014, 0.000201799
+Initial average, max, med error: 0.476522, 1.68964, 0.390989
+Final average, max, med error: 0.000187976, 0.000677335, 0.000149971
+Initial average, max, med error: 0.560098, 1.90169, 0.436697
+Final average, max, med error: 0.00686609, 0.193877, 0.00112396
+Writing camera: intrinsic/extrinsic, dir = out-mcp/
+Writing extrinsics file: out-mcp//frame_0000.extrinsic
+Writing extrinsics file: out-mcp//frame_0001.extrinsic
+Writing extrinsics file: out-mcp//frame_0002.extrinsic
+Writing extrinsics file: out-mcp//frame_0003.extrinsic
+Writing extrinsics file: out-mcp//frame_0004.extrinsic
+Writing extrinsics file: out-mcp//frame_0005.extrinsic
+Writing extrinsics file: out-mcp//frame_0006.extrinsic
+Writing extrinsics file: out-mcp//frame_0007.extrinsic
+Writing extrinsics file: out-mcp//frame_0008.extrinsic
+Writing extrinsics file: out-mcp//frame_0009.extrinsic
+Writing extrinsics file: out-mcp//frame_0010.extrinsic
+Writing extrinsics file: out-mcp//frame_0011.extrinsic
+Writing extrinsics file: out-mcp//frame_0012.extrinsic
+Writing extrinsics file: out-mcp//frame_0013.extrinsic
+Writing extrinsics file: out-mcp//frame_0014.extrinsic
+Writing extrinsics file: out-mcp//frame_0015.extrinsic
+Writing extrinsics file: out-mcp//frame_0016.extrinsic
+Writing extrinsics file: out-mcp//frame_0017.extrinsic
+Writing extrinsics file: out-mcp//frame_0018.extrinsic
+Writing extrinsics file: out-mcp//frame_0019.extrinsic
+vgui::uninit called

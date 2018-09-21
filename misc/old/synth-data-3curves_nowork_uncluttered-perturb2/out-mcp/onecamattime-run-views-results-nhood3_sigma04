@@ -1,0 +1,82 @@
+
+view list arg (size 3):
+ 12 13 14
+view list (size 3):
+12 13 14 
+Reading ./mcs_img_list.txt
+Reading ./mcs_edg_list.txt
+Reading ./mcs_frag_list.txt
+Dpath:
+nviews: 20
+path data view[0]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0000.png
+edg_fname: frame_0000.edg.gz
+frag_fname: frame_0000.cemv.gz
+
+path data view[end]:
+path: ./
+cam_ftype: 0
+img_fname: frame_0019.png
+edg_fname: frame_0019.edg.gz
+frag_fname: frame_0019.cemv.gz
+
+
+read_dir: Reading num_curves
+read_dir: Reading 3d curves
+read_dir: Reading attributes
+Pruning 3 curves with cost < 0
+Pruned down to 3 curves
+Initializing bundle adjustment driver
+dvcpl_bundle_adjust_driver: views successfully chained
+Inliers for curve[0]: 12 13 14 
+Inliers for curve[1]: 13 14 
+Inliers for curve[2]: 12 13 14 
+Number of views being optimized: 3
+Optimizing 3 curves across 3 views.
+Running stereo driver.
+Reading camera: intrinsic/extrinsic, fname = ./frame_0012.png
+No offset file ./frame_0012.origin
+No scaling file ./frame_0012.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.730521 1.61536e-15 -0.68289 0
+0.080915 -0.992955 -0.0865587 0
+-0.67808 -0.118489 0.725375 0
+0 0 0 1
+
+Reading camera: intrinsic/extrinsic, fname = ./frame_0013.png
+No offset file ./frame_0013.origin
+No scaling file ./frame_0013.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.827509 1.60635e-15 -0.561452 0
+0.0665259 -0.992955 -0.0980507 0
+-0.557497 -0.118489 0.82168 0
+0 0 0 1
+
+Reading camera: intrinsic/extrinsic, fname = ./frame_0014.png
+No offset file ./frame_0014.origin
+No scaling file ./frame_0014.scale
+Reading extrinsic params
+
+Read rotation (before call vpgl_camera): 
+-0.877553 1.61571e-15 -0.47948 0
+0.0568131 -0.992955 -0.10398 0
+-0.476102 -0.118489 0.871371 0
+0 0 0 1
+
+Initial average, max, med error: 0.388378, 1.68005, 0.284429
+Final average, max, med error: 0.191567, 1.20089, 0.117181
+Initial average, max, med error: 0.738883, 2.79771, 0.528355
+Final average, max, med error: 0.552171, 2.16557, 0.315478
+Initial average, max, med error: 0.534739, 1.85145, 0.384543
+Final average, max, med error: 0.446124, 1.45856, 0.317982
+Writing camera: intrinsic/extrinsic, dir = out-mcp/
+Writing extrinsics file: out-mcp//frame_0012.extrinsic
+Writing extrinsics file: out-mcp//frame_0013.extrinsic
+Writing extrinsics file: out-mcp//frame_0014.extrinsic
+vgui::uninit called
