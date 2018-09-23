@@ -46,6 +46,24 @@ Fostered by Benjamin Kimia, Brown University.
 
 ## Citing the dataset
 
+Please cite the paper for projection and reconstruction of
+differential-geometric properties - Fabbri and Kimia IJCV 2016:
+
+```bibtex
+@article{Fabbri:Kimia:IJCV2016,
+  title={Multiview Differential Geometry of Curves},
+  author={Fabbri, Ricardo and Kimia, Benjamin B},
+  journal={International Journal of Computer Vision},
+  pages={1--23},
+  year={2016},
+  volume = {117},
+  doi="10.1007/s11263-016-0912-7",
+  url="http://dx.doi.org/10.1007/s11263-016-0912-7",
+  publisher={Springer}
+}
+```
+
+
 Please cite the original paper this dataset appeared in:
 
 ```bibtex
@@ -68,7 +86,6 @@ Please cite the original paper this dataset appeared in:
   series    = {Lecture Notes in Computer Science},
   year      = {2012}
 }
-
 ```
 
 ## Credits

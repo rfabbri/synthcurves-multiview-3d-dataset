@@ -1,1 +1,42 @@
 CC-BY https://creativecommons.org/licenses/by/2.0/
+
+Please cite the paper for projection and reconstruction of
+differential-geometric properties - Fabbri and Kimia IJCV 2016:
+
+```bibtex
+@article{Fabbri:Kimia:IJCV2016,
+  title={Multiview Differential Geometry of Curves},
+  author={Fabbri, Ricardo and Kimia, Benjamin B},
+  journal={International Journal of Computer Vision},
+  pages={1--23},
+  year={2016},
+  volume = {117},
+  doi="10.1007/s11263-016-0912-7",
+  url="http://dx.doi.org/10.1007/s11263-016-0912-7",
+  publisher={Springer}
+}
+```
+
+Please cite the original paper this dataset appeared in:
+
+```bibtex
+@inproceedings{Fabbri:Giblin:Kimia:ECCV12,
+    Author         = {Ricardo Fabbri and Peter J. Giblin and Benjamin B. Kimia},
+    Booktitle      = {Proceedings of the IEEE European Conference in Computer Vision},
+    Crossref       = {ECCV2012},
+    Title          = {Camera Pose Estimation Using First-Order Curve Differential Geometry},
+    Year           = {2012}
+}
+
+@proceedings{ECCV2012,
+  title     = {Computer Vision - ECCV 2012, 12th European Conference on
+               Computer Vision, Firenze, Italy, October 7-13,
+               2012, Proceedings},
+  booktitle = {12th European Conference on
+               Computer Vision, Firenze, Italy, October 7-13,
+               2012},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  year      = {2012}
+}
+```
