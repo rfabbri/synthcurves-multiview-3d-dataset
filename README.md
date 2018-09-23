@@ -1,5 +1,8 @@
-# Synthetic Curves Multiview Dataset
+# Synthetic Curves Multiview Dataset (ALPHA)
 <img src="synthcurves-dataset-snapshot.png" width="215" height="84" />
+
+
+## UNDER DEVELOPMENT
 
 Synthetic Curves Dataset
 
