@@ -29,9 +29,39 @@ Thanks to Irina Nurutdinova, TU Berlin, for testing this out.
 ## Files
 
 ```
+ascii-20_views-olympus-turntable/    txt's for 20 views, cams and point-tangents
+ascii-20_views-olympus-turntable/*cxx    snapshot of original VXD code used to generate the data
+
 misc/
 
-misc/old
+misc/old     used for ECCV'12 and IJCV'16, as well as CVPR'10
+```
+
+## Format for ASCII datasets
+
+```
+calib.intrinsic    the K matrix when it is the same for every view
+
+```
+
+For each view, say, view number 0014, and for each curve sample, say, 691,
+we provide the following 20-digit precision data in text form:
+
+```
+frame_0014-pts-2D.txt     x y coordinates of point 691, at line 691
+frame_0014-tgts-2D.txt    t_x t_y coordinates of tangent 691, at line 691
+crv_ids.txt               curve number of point 691, at line 691 (curves are numbered 0 to n_curves-1)
+crv-3D-pts.txt            X Y Z coordinates of 3D point 691 corresponding to 2D point 691
+crv-3D-tgts.txt           T_X T_Y T_X coordinate of 3D tangent 691
+frame_0014.extrincic      camera model for frame 0014. Format:
+
+                          Rot Rot Rot
+                          Rot Rot Rot
+                          Rot Rot Rot
+                          C_X C_Y C_z
+                          
+                          where C = (C_X, C_Y, C_Z) is the camera center, *not*
+                          the translation vector, which would be T = -RC
 ```
 
 ## Version
