@@ -6,12 +6,19 @@ disp 'You should only see zeros, if all works (result of lines without semicolon
 disp '/////////////////////////'
 
 // chose 3 arbitrary points (do multiple runs when evaluating a solver)
-point_ids=[689 869 968];
+selected_point_ids=[689 869 968];
+selected_npts = size(selected_point_ids,'*');
+nviews = 3; // for semantics sake
+ncoordinates = 3; // just defined this for semantic reasons
 
-// read 3 arbitrary views
-x_1_vec_img=read('frame_0003-pts-2D.txt',-1,2)';
-x_2_vec_img=read('frame_0011-pts-2D.txt',-1,2)';
-x_3_vec_img=read('frame_0017-pts-2D.txt',-1,2)';
+// read 3 arbitrary views. Everything is indexed as (view,coordinate,point) for
+// ease of matrix multiplication the way I did it, but it makes more sense to do
+// (view,point,coordinate)
+x_1_img = read('frame_0003-pts-2D.txt',-1,2)';
+total_npts = size(x_1_img,2);
+
+x_2_img = read('frame_0011-pts-2D.txt',-1,2)';
+x_3_img = read('frame_0017-pts-2D.txt',-1,2)';
 
 // cameras are read with rotation and camera center in one matrix
 RC_1 = read('frame_0003.extrinsic',-1,3);
@@ -50,7 +57,7 @@ K = read('calib.intrinsic',-1,3);
 
 // Read 3D points
 
-X_vec = read('crv-3D-pts.txt',-1,3)';
+X = read('crv-3D-pts.txt',-1,3)';
 
 // Plug into equations that must be zero
 
@@ -60,26 +67,26 @@ X_vec = read('crv-3D-pts.txt',-1,3)';
 P_1w = K *[R_1w t_1w];
 
 // sanity check 0: project 1st point matches supplied 2D point
-proj=P_1w*[X_vec(:,1); 1]; // we are selecting only 1st point
+proj=P_1w*[X(:,1); 1]; // we are selecting only 1st point
 proj=proj/proj($);
 proj=proj(1:2);
-x_1_vec_img(:,1);
-max(abs(proj-x_1_vec_img(:,1)))  // zero
+x_1_img(:,1);
+max(abs(proj-x_1_img(:,1)))  // zero
 
 // sanity check 1: all projections to cam 1 give supplied 2D points
-proj_1 = P_1w * [X_vec; ones(1,size(X_vec,2))];  // all points
+proj_1 = P_1w * [X; ones(1,total_npts)];  // all points
 proj_1 = proj_1 ./ [proj_1(3,:); proj_1(3,:); proj_1(3,:)];
 proj_1 = proj_1(1:2,:);
-max(abs(proj_1 - x_1_vec_img))
+max(abs(proj_1 - x_1_img))
 
 
 // First index in symbol means view, second is point
 // When there is only one index, it is view (eg, X_1 is 3D point X in view 1)
 // When there is no index, it is world (eg, X)
 //
-X_1_vec = R_1w*X_vec + t_1w*ones(1,size(X_vec,2));
-X_2_vec = R_2*X_1_vec + t_2*ones(1,size(X_vec,2));
-X_3_vec = R_3*X_1_vec + t_3*ones(1,size(X_vec,2));
+X_1 = R_1w*X + t_1w*ones(1,total_npts);
+X_2 = R_2*X_1 + t_2*ones(1,total_npts);
+X_3 = R_3*X_1 + t_3*ones(1,total_npts);
 
 // ---------------------------------------------------------------------
 // CORE POINT EQUATIONS
@@ -88,23 +95,26 @@ X_3_vec = R_3*X_1_vec + t_3*ones(1,size(X_vec,2));
 // Starting here we treat the 2D points as 3D vectors
 // Apply the inverse K matrix!
 
-x_1_vec_img = [x_1_vec_img; ones(1,size(x_1_vec_img,2))];
-x_2_vec_img = [x_2_vec_img; ones(1,size(x_2_vec_img,2))];
-x_3_vec_img = [x_3_vec_img; ones(1,size(x_3_vec_img,2))];
 
-// x_1_vec = inv(K)*x_1_vec;
-x_1_vec = K\x_1_vec_img;
-x_2_vec = K\x_2_vec_img;
-x_3_vec = K\x_3_vec_img;
+size(x_2_img,2) - total_npts // sanity check, must be 0
+x_1_img = [x_1_img; ones(1,total_npts)];
+x_2_img = [x_2_img; ones(1,total_npts)];
+x_3_img = [x_3_img; ones(1,total_npts)];
+
+// x_1 = inv(K)*x_1;
+x_1 = K\x_1_img;
+x_2 = K\x_2_img;
+x_3 = K\x_3_img;
 
 // ground truth depth 'alpha' abbreviated as 'a'
-a_1 = X_1_vec(3,:);
-a_2 = X_2_vec(3,:);
-a_3 = X_3_vec(3,:);
+a = zeros(selected_npts, total_npts);
+a(1,:) = X_1(3,:);
+a(2,:) = X_2(3,:);
+a(3,:) = X_3(3,:);
 
-for i=point_ids
-  a_2(i)*x_2_vec(:,i) - a_1(i)*R_2*x_1_vec(:,i) - t_2
-  a_3(i)*x_3_vec(:,i) - a_1(i)*R_3*x_1_vec(:,i) - t_3
+for i=selected_point_ids
+  a(2,i)*x_2(:,i) - a(1,i)*R_2*x_1(:,i) - t_2
+  a(3,i)*x_3(:,i) - a(1,i)*R_3*x_1(:,i) - t_3
 end
 
 // ---------------------------------------------------------------------
@@ -112,10 +122,10 @@ end
 
 // Read 3D tangents D and image tangents d
 
-D_vec = read('crv-3D-tgts.txt',-1,3)';
-d_1_vec_img=read('frame_0003-tgts-2D.txt',-1,2)';
-d_2_vec_img=read('frame_0011-tgts-2D.txt',-1,2)';
-d_3_vec_img=read('frame_0017-tgts-2D.txt',-1,2)';
+D = read('crv-3D-tgts.txt',-1,3)';
+d_1_img=read('frame_0003-tgts-2D.txt',-1,2)';
+d_2_img=read('frame_0011-tgts-2D.txt',-1,2)';
+d_3_img=read('frame_0017-tgts-2D.txt',-1,2)';
 
 exec synthdata_trifocal_tangents_simpler_notation.sce;
 
