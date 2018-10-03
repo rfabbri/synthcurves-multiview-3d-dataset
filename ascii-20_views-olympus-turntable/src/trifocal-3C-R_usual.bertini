@@ -91,7 +91,7 @@ d333 = 0;
 % -------------------
 % Point Equations
 % First set of three equations from the first vector point equation (*) above
-variable_group 
+hom_variable_group 
 a11, a12, a13,
 a21, a22, a23,
 a31, a32, a33,
