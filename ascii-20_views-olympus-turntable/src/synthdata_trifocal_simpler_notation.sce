@@ -5,6 +5,9 @@ disp '/////////////////////////'
 disp 'You should only see zeros, if all works (result of lines without semicolon).'
 disp '/////////////////////////'
 
+// chose 3 arbitrary points (do multiple runs when evaluating a solver)
+point_ids=[689 869 968];
+
 // read 3 arbitrary views
 x_1_vec_img=read('frame_0003-pts-2D.txt',-1,2)';
 x_2_vec_img=read('frame_0011-pts-2D.txt',-1,2)';
@@ -70,41 +73,40 @@ proj_1 = proj_1(1:2,:);
 max(abs(proj_1 - x_1_vec_img))
 
 
+// First index in symbol means view, second is point
+// When there is only one index, it is view (eg, X_1 is 3D point X in view 1)
+// When there is no index, it is world (eg, X)
+//
+X_1_vec = R_1w*X_vec + t_1w*ones(1,size(X_vec,2));
+X_2_vec = R_2*X_1_vec + t_2*ones(1,size(X_vec,2));
+X_3_vec = R_3*X_1_vec + t_3*ones(1,size(X_vec,2));
 
-////   // last index in underscore is view, like so:
-////   //    symbol_samplenumber_viewnumber
-////   //    symbol__viewnumber(samplenumber)
-////   //    symbol(samplenumber,viewnumber)
-////   Gama_1_vec = R_1*Gama_w_vec + T_1*ones(1,size(Gama_w_vec,2));
-////   Gama_2_vec = R_21*Gama_1_vec + T_21*ones(1,size(Gama_w_vec,2));
-////   Gama_3_vec = R_31*Gama_1_vec + T_31*ones(1,size(Gama_w_vec,2));
-////   
-////   depth__1 = Gama_1_vec(3,:);
-////   depth__2 = Gama_2_vec(3,:);
-////   depth__3 = Gama_3_vec(3,:);
-////   
-////   // ---------------------------------------------------------------------
-////   // CORE POINT EQUATIONS
-////   // must output zero:
-////   
-////   // Starting here we treat the 2D points as 3D vectors
-////   // Apply the inverse K matrix!
-////   
-////   gama__1_vec_img = [gama__1_vec_img; ones(1,size(gama__1_vec_img,2))]
-////   gama__2_vec_img = [gama__2_vec_img; ones(1,size(gama__2_vec_img,2))]
-////   gama__3_vec_img = [gama__3_vec_img; ones(1,size(gama__3_vec_img,2))]
-////   
-////   // gama__1_vec = inv(K)*gama__1_vec;
-////   gama__1_vec = K\gama__1_vec_img;
-////   gama__2_vec = K\gama__2_vec_img;
-////   gama__3_vec = K\gama__3_vec_img;
-////   
-////   point_ids=[689 869 968]
-////   for i=point_ids
-////     depth__2(i)*gama__2_vec(:,i) - depth__1(i)*R_21*gama__1_vec(:,i) - T_21
-////     depth__3(i)*gama__3_vec(:,i) - depth__1(i)*R_31*gama__1_vec(:,i) - T_31
-////   end
-////   
+// ---------------------------------------------------------------------
+// CORE POINT EQUATIONS
+// must output zero:
+
+// Starting here we treat the 2D points as 3D vectors
+// Apply the inverse K matrix!
+
+x_1_vec_img = [x_1_vec_img; ones(1,size(x_1_vec_img,2))];
+x_2_vec_img = [x_2_vec_img; ones(1,size(x_2_vec_img,2))];
+x_3_vec_img = [x_3_vec_img; ones(1,size(x_3_vec_img,2))];
+
+// x_1_vec = inv(K)*x_1_vec;
+x_1_vec = K\x_1_vec_img;
+x_2_vec = K\x_2_vec_img;
+x_3_vec = K\x_3_vec_img;
+
+// ground truth depth 'alpha' or abbreviate as 'a'
+alpha_1 = X_1_vec(3,:);
+alpha_2 = X_2_vec(3,:);
+alpha_3 = X_3_vec(3,:);
+
+for i=point_ids
+  alpha_2(i)*x_2_vec(:,i) - alpha_1(i)*R_2*x_1_vec(:,i) - t_2
+  alpha_3(i)*x_3_vec(:,i) - alpha_1(i)*R_3*x_1_vec(:,i) - t_3
+end
+
 ////   // ---------------------------------------------------------------------
 ////   // TANGENT EQUATIONS
 ////   
