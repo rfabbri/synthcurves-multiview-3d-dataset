@@ -108,8 +108,10 @@ for p=selected_point_ids
   m_2 = b_2*g_2;
   m_3 = b_3*g_3;
   
-///   //   TANGENT EQS VIEWS 1 and 2
-  e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p))
+  //   TANGENT EQS
+  e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)
+  e_3*x_3(:,p) + m_3*d_3(:,p) - R_3*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (****)
+  
 ///   
 ///   //   TANGENT EQS VIEWS 1 and 3
 ///   e(2,p)*x_2(:,p) + m(2,p)*d_2(:,p) -
