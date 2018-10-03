@@ -30,7 +30,8 @@ Thanks to Irina Nurutdinova, TU Berlin, for testing this out.
 
 ```
 ascii-20_views-olympus-turntable/    txt's for 20 views, cams and point-tangents
-ascii-20_views-olympus-turntable/*cxx    snapshot of original VXD code used to generate the data
+ascii-20_views-olympus-turntable/src/*.cxx    snapshot of original VXD code used to generate the data
+ascii-20_views-olympus-turntable/src/*.sce    snapshot of original Scilab code used to validate the data
 
 misc/
 
