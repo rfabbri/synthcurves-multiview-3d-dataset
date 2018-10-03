@@ -1,12 +1,13 @@
 cd /Users/rfabbri/lib/data/synthcurves-multiview-3d-dataset/ascii-20_views-olympus-turntable
 clear;
+format(20) // show 20 digits
 
 disp '/////////////////////////'
 disp 'You should only see zeros, if all works (result of lines without semicolon).'
 disp '/////////////////////////'
 
 // chose 3 arbitrary points (do multiple runs when evaluating a solver)
-selected_point_ids=[689 869 968];
+selected_point_ids=[689 2086 4968];
 selected_npts = size(selected_point_ids,'*');
 nviews = 3; // for semantics sake
 ncoordinates = 3; // just defined this for semantic reasons
@@ -112,10 +113,122 @@ a(1,:) = X_1(3,:);
 a(2,:) = X_2(3,:);
 a(3,:) = X_3(3,:);
 
-for i=selected_point_ids
-  a(2,i)*x_2(:,i) - a(1,i)*R_2*x_1(:,i) - t_2
-  a(3,i)*x_3(:,i) - a(1,i)*R_3*x_1(:,i) - t_3
+for p=selected_point_ids
+  a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)
+  a(3,p)*x_3(:,p) - a(1,p)*R_3*x_1(:,p) - t_3 // (**)
 end
+// beware a(3,:) is mostly zero except at the selected points
+
+// Output to Bertini
+//
+// Example:
+//
+// % Trifocal point case for point-tangent ids 689 2086 4968
+// % TODO: make pre-tests to make sure these points are far from degenerate
+// % Indexing is eg x{view}{point}{coordinate}
+//
+// % INPUT data: 3 points and tangents
+// constant x111 x112 x113 ... x333
+// constant d111 d112 ... d332
+//
+// % Set these inputs: 
+// % scilab: x_1(:,selected_point_ids(1))
+// x111 = -0.01609589159371727;
+// x112 = 0.0861548623366261;
+// x113 = 1:
+//
+// x121 = -0.01421529931862033;
+// x122 = 0.15164819506961155;
+// x123 = 1;
+//
+// x131 = 0.0155829286858466;
+// x132 = 0.12352302780175817;
+// x133 = 1;
+//
+// x211 = 0.01389192462875502;
+// x212 = 0.08595606183440178;
+// x213 = 1;
+//
+// x221 = 0.0137394337121674;
+// x222 = 0.1515915437407269;
+// x223 = 1;
+//
+// x231 = 0.02520938938602093;
+// x232 = 0.12793300445393241;
+// x233 = 1;
+//
+// x311 = 0.03177299989757976;
+// x312 = 0.08899413323286663;
+// x313 = 1;
+//
+// x321 = 0.03004852302129869;
+// x322 = 0.15543598064788686;
+// x323 = 1;
+//
+// x331 = 0.02150970592535596;
+// x332 = 0.13169055919273559;
+// x333 = 1:
+
+
+// 
+// % Variables
+// % Translation and depths are a homogeneous group in each eq
+// %
+// % -------------------
+// % Point Equations
+// % First set of three equations from the first vector point equation (*) above
+// %% Point 1
+// hom_variable_group a11, a21, t21, % TODO: eliminate dups
+//                    a11, a21, t22,
+//                    a11, a21, t23,
+// %% Point 2
+// a12, a22, t21,
+// a12, a22, t22,
+// a12, a22, t23,
+//
+// %% Point 3
+// a13, a23, t21,
+// a13, a23, t22,
+// a13, a23, t23,
+//
+// % Second set of three equations per point from (*) above
+// %% Point 1,
+// a11, a31, t31,
+// a11, a31, t32,
+// a11, a31, t33,
+//
+// %% Point 2,
+// a12, a32, t31,
+// a12, a32, t32,
+// a12, a32, t33,
+//
+// %% Point 3,
+// a13, a33, t31,
+// a13, a33, t32,
+// a13, a33, t33;
+//
+// % Rotations
+// % try different parametrizations for rotations. Lets try standard
+//
+// variable_group 
+// r211, r212, r213,
+// r221, r222, r223,
+// r231, r232, r233,
+//
+// r311, r312, r313,
+// r321, r322, r323,
+// r331, r332, r333;
+// % ---------------------------------------------------------------------
+//
+// Point equation (*), coordinate 1, point 1
+// a21*x211 + a11*r211*x111 + a11*r212*x12 + // and so on..
+//
+//
+// Equations
+//
+//  a(2,p)*x_2(:,p) - a(1,i)*R_2*x_1(:,i) - t_2 // (*)
+//  a(3,i)*x_3(:,i) - a(1,i)*R_3*x_1(:,i) - t_3 // (**)
+
 
 // ---------------------------------------------------------------------
 // TANGENT EQUATIONS
