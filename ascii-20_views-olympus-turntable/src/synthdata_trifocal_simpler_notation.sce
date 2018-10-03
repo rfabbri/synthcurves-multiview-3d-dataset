@@ -97,14 +97,14 @@ x_1_vec = K\x_1_vec_img;
 x_2_vec = K\x_2_vec_img;
 x_3_vec = K\x_3_vec_img;
 
-// ground truth depth 'alpha' or abbreviate as 'a'
-alpha_1 = X_1_vec(3,:);
-alpha_2 = X_2_vec(3,:);
-alpha_3 = X_3_vec(3,:);
+// ground truth depth 'alpha' abbreviated as 'a'
+a_1 = X_1_vec(3,:);
+a_2 = X_2_vec(3,:);
+a_3 = X_3_vec(3,:);
 
 for i=point_ids
-  alpha_2(i)*x_2_vec(:,i) - alpha_1(i)*R_2*x_1_vec(:,i) - t_2
-  alpha_3(i)*x_3_vec(:,i) - alpha_1(i)*R_3*x_1_vec(:,i) - t_3
+  a_2(i)*x_2_vec(:,i) - a_1(i)*R_2*x_1_vec(:,i) - t_2
+  a_3(i)*x_3_vec(:,i) - a_1(i)*R_3*x_1_vec(:,i) - t_3
 end
 
 ////   // ---------------------------------------------------------------------
