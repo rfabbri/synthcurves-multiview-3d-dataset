@@ -107,15 +107,15 @@ for i=point_ids
   a_3(i)*x_3_vec(:,i) - a_1(i)*R_3*x_1_vec(:,i) - t_3
 end
 
-////   // ---------------------------------------------------------------------
-////   // TANGENT EQUATIONS
-////   
-////   // Read 3D tangents
-////   
-////   T_w_vec = read('crv-3D-tgts.txt',-1,3)';
-////   t__1_vec_img=read('frame_0003-tgts-2D.txt',-1,2)';
-////   t__2_vec_img=read('frame_0011-tgts-2D.txt',-1,2)';
-////   t__3_vec_img=read('frame_0017-tgts-2D.txt',-1,2)';
-////   
-////   exec synthdata_trifocal_tangents.sce;
-////   
+// ---------------------------------------------------------------------
+// TANGENT EQUATIONS
+
+// Read 3D tangents D and image tangents d
+
+D_vec = read('crv-3D-tgts.txt',-1,3)';
+d_1_vec_img=read('frame_0003-tgts-2D.txt',-1,2)';
+d_2_vec_img=read('frame_0011-tgts-2D.txt',-1,2)';
+d_3_vec_img=read('frame_0017-tgts-2D.txt',-1,2)';
+
+exec synthdata_trifocal_tangents_simpler_notation.sce;
+
