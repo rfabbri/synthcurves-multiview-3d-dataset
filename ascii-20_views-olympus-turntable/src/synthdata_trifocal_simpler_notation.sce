@@ -1,5 +1,5 @@
 cd /Users/rfabbri/lib/data/synthcurves-multiview-3d-dataset/ascii-20_views-olympus-turntable
-clear all;
+clear;
 
 disp '/////////////////////////'
 disp 'You should only see zeros, if all works (result of lines without semicolon).'
@@ -107,7 +107,7 @@ x_2 = K\x_2_img;
 x_3 = K\x_3_img;
 
 // ground truth depth 'alpha' abbreviated as 'a'
-a = zeros(selected_npts, total_npts);
+a = zeros(nviews, total_npts);
 a(1,:) = X_1(3,:);
 a(2,:) = X_2(3,:);
 a(3,:) = X_3(3,:);
