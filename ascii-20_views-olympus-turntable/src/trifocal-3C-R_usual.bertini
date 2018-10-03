@@ -141,72 +141,114 @@ r331, r332, r333;
 %  a(3,p)*x_3(:,p) - t_3 - a(1,p)*R_3*x_1(:,p) // (view 3, from 1 **)
 
 function 
-pt_eq211,
-pt_eq212,
-pt_eq213,
+ptfn211,
+ptfn212,
+ptfn213,
 
-% Point equation (*), point 2
-pt_eq221,
-pt_eq222,
-pt_eq223,
+ptfn221,
+ptfn222,
+ptfn223,
 
-% Point equation (*), point 3
-pt_eq231,
-pt_eq232,
-pt_eq233,
+ptfn231,
+ptfn232,
+ptfn233,
 
-% Point equation views 1 and 3 (*), point 1
+ptfn311,
+ptfn312,
+ptfn313,
 
-% pt_eq{view}{point}{coordinate}
-pt_eq311,
-pt_eq312,
-pt_eq313,
+ptfn321,
+ptfn322,
+ptfn323,
 
-% Point equation (**), point 2
-pt_eq321,
-pt_eq322,
-pt_eq323,
+ptfn331,
+ptfn332,
+ptfn333;
 
-% Point equation (**), point 3
-pt_eq331,
-pt_eq332,
-pt_eq333;
-
-%%%%%%%%%%%%%%%
 % Point equation for view 2 (*), point 1
 
-% pt_eq{view}{point}{coordinate}
-pt_eq211 = a21*x211 - t21 + a11*r211*x111 + a11*r212*x112 + a11*r213*x113;
-pt_eq212 = a21*x212 - t22 + a11*r221*x111 + a11*r222*x112 + a11*r223*x113;
-pt_eq213 = a21*x213 - t23 + a11*r231*x111 + a11*r232*x112 + a11*r233*x113;
+% ptfn{view}{point}{coordinate}
+ptfn211 = a21*x211 - t21 + a11*r211*x111 + a11*r212*x112 + a11*r213*x113;
+ptfn212 = a21*x212 - t22 + a11*r221*x111 + a11*r222*x112 + a11*r223*x113;
+ptfn213 = a21*x213 - t23 + a11*r231*x111 + a11*r232*x112 + a11*r233*x113;
 
 % Point equation (*), point 2
-pt_eq221 = a22*x221 - t21 + a12*r211*x121 + a12*r212*x122 + a12*r213*x123;
-pt_eq222 = a22*x222 - t22 + a12*r221*x121 + a12*r222*x122 + a12*r223*x123;
-pt_eq223 = a22*x223 - t23 + a12*r231*x121 + a12*r232*x122 + a12*r233*x123;
+ptfn221 = a22*x221 - t21 + a12*r211*x121 + a12*r212*x122 + a12*r213*x123;
+ptfn222 = a22*x222 - t22 + a12*r221*x121 + a12*r222*x122 + a12*r223*x123;
+ptfn223 = a22*x223 - t23 + a12*r231*x121 + a12*r232*x122 + a12*r233*x123;
 
 % Point equation (*), point 3
-pt_eq231 = a23*x231 - t21 + a13*r211*x131 + a13*r212*x132 + a13*r213*x133;
-pt_eq232 = a23*x232 - t22 + a13*r221*x131 + a13*r222*x132 + a13*r223*x133;
-pt_eq233 = a23*x233 - t23 + a13*r231*x131 + a13*r232*x132 + a13*r233*x133;
+ptfn231 = a23*x231 - t21 + a13*r211*x131 + a13*r212*x132 + a13*r213*x133;
+ptfn232 = a23*x232 - t22 + a13*r221*x131 + a13*r222*x132 + a13*r223*x133;
+ptfn233 = a23*x233 - t23 + a13*r231*x131 + a13*r232*x132 + a13*r233*x133;
 
 % Point equation views 1 and 3 (*), point 1
 
-% pt_eq{view}{point}{coordinate}
-pt_eq311 = a31*x311 - t31 + a11*r311*x111 + a11*r312*x112 + a11*r313*x113;
-pt_eq312 = a31*x312 - t32 + a11*r321*x111 + a11*r322*x112 + a11*r323*x113;
-pt_eq313 = a31*x313 - t33 + a11*r331*x111 + a11*r332*x112 + a11*r333*x113;
+% ptfn{view}{point}{coordinate}
+ptfn311 = a31*x311 - t31 + a11*r311*x111 + a11*r312*x112 + a11*r313*x113;
+ptfn312 = a31*x312 - t32 + a11*r321*x111 + a11*r322*x112 + a11*r323*x113;
+ptfn313 = a31*x313 - t33 + a11*r331*x111 + a11*r332*x112 + a11*r333*x113;
 
 % Point equation (**), point 2
-pt_eq321 = a32*x321 - t31 + a12*r311*x121 + a12*r312*x122 + a12*r313*x123;
-pt_eq322 = a32*x322 - t32 + a12*r321*x121 + a12*r322*x122 + a12*r323*x123;
-pt_eq323 = a32*x323 - t33 + a12*r331*x121 + a12*r332*x122 + a12*r333*x123;
+ptfn321 = a32*x321 - t31 + a12*r311*x121 + a12*r312*x122 + a12*r313*x123;
+ptfn322 = a32*x322 - t32 + a12*r321*x121 + a12*r322*x122 + a12*r323*x123;
+ptfn323 = a32*x323 - t33 + a12*r331*x121 + a12*r332*x122 + a12*r333*x123;
 
 % Point equation (**), point 3
-pt_eq331 = a33*x331 - t31 + a13*r311*x131 + a13*r312*x132 + a13*r313*x133;
-pt_eq332 = a33*x332 - t32 + a13*r321*x131 + a13*r322*x132 + a13*r323*x133;
-pt_eq333 = a33*x333 - t33 + a13*r331*x131 + a13*r332*x132 + a13*r333*x133;
+ptfn331 = a33*x331 - t31 + a13*r311*x131 + a13*r312*x132 + a13*r313*x133;
+ptfn332 = a33*x332 - t32 + a13*r321*x131 + a13*r322*x132 + a13*r323*x133;
+ptfn333 = a33*x333 - t33 + a13*r331*x131 + a13*r332*x132 + a13*r333*x133;
 
 % ---------------------------------------------------------------------
+% Tangent equations
+% e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)
+% e_3*x_3(:,p) + m_3*d_3(:,p) - R_3*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (****)
 
+% no need to declare
 
+% Tangent equation for view 2 (***), point 1
+
+% tgtfn{view}{point}{coordinate}
+% e{view}{point}
+% Dvec{point}{coord} = e_1*x_1(:,p) + m_1*d_1(:,p)
+Dvec11 = e11*x_111 + m11*d_111;
+Dvec12 = e11*x_112 + m11*d_112;
+Dvec13 = e11*x_113 + m11*d_113;
+tqfn211 = e21*x211 + m21*d211 - r211*Dvec11 + r212*Dvec12 + r213*Dvec13;
+tqfn212 = e21*x212 + m21*d212 - r221*Dvec11 + r222*Dvec12 + r223*Dvec13;
+tqfn213 = e21*x213 + m21*d213 - r231*Dvec11 + r232*Dvec12 + r233*Dvec13;
+
+% Tangent equation for view 2 (***), point 2
+Dvec21 = e12*x_121 + m12*d_121;
+Dvec22 = e12*x_122 + m12*d_122;
+Dvec23 = e12*x_123 + m12*d_123;
+tqfn221 = e22*x221 + m22*d221 - r211*Dvec21 + r212*Dvec22 + r213*Dvec23;
+tqfn222 = e22*x222 + m22*d222 - r221*Dvec21 + r222*Dvec22 + r223*Dvec23;
+tqfn223 = e22*x223 + m22*d223 - r231*Dvec21 + r232*Dvec22 + r233*Dvec23;
+
+% Tangent equation for view 2 (***), point 3
+Dvec31 = e13*x_131 + m13*d_131;
+Dvec32 = e13*x_132 + m13*d_132;
+Dvec33 = e13*x_133 + m13*d_133;
+tqfn231 = e23*x231 + m23*d231 - r211*Dvec31 + r212*Dvec32 + r213*Dvec33;
+tqfn232 = e23*x232 + m23*d232 - r221*Dvec31 + r222*Dvec32 + r223*Dvec33;
+tqfn233 = e23*x233 + m23*d233 - r231*Dvec31 + r232*Dvec32 + r233*Dvec33;
+
+% Tangent equation for view 3 (***), point 1
+
+% tgtfn{view}{point}{coordinate}
+% e{view}{point}
+% Dvec{view}{point}{coord} = e_1*x_1(:,p) + m_1*d_1(:,p)
+tqfn311 = e31*x311 + m31*d311 - r311*Dvec11 + r312*Dvec12 + r313*Dvec13;
+tqfn312 = e31*x312 + m31*d312 - r321*Dvec11 + r322*Dvec12 + r323*Dvec13;
+tqfn313 = e31*x313 + m31*d313 - r331*Dvec11 + r332*Dvec12 + r333*Dvec13;
+
+% Tangent equation for view 3 (***), point 2
+tqfn321 = e32*x321 + m32*d321 - r311*Dvec21 + r312*Dvec22 + r313*Dvec23;
+tqfn322 = e32*x322 + m32*d322 - r321*Dvec21 + r322*Dvec22 + r323*Dvec23;
+tqfn323 = e32*x323 + m32*d323 - r331*Dvec21 + r332*Dvec22 + r333*Dvec23;
+
+% Tangent equation for view 3 (***), point 3
+tqfn331 = e33*x331 + m33*d331 - r311*Dvec31 + r312*Dvec32 + r313*Dvec33;
+tqfn332 = e33*x332 + m33*d332 - r321*Dvec31 + r322*Dvec32 + r323*Dvec33;
+tqfn333 = e33*x333 + m33*d333 - r331*Dvec31 + r332*Dvec32 + r333*Dvec33;
