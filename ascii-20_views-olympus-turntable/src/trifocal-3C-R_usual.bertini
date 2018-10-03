@@ -13,7 +13,7 @@ constant x111, x112, x113, x121, x122, x123, x131, x132, x133, x211, x212, x213,
 % 2D points
 x111 = -0.01609589159371727;
 x112 = 0.0861548623366261;
-x113 = 1:
+x113 = 1;
 
 x121 = -0.01421529931862033;
 x122 = 0.15164819506961155;
@@ -45,12 +45,12 @@ x323 = 1;
 
 x331 = 0.02150970592535596;
 x332 = 0.13169055919273559;
-x333 = 1:
+x333 = 1;
 
 % 2D tangents
 d111 = -0.99976604030148530;
 d112 =  0.02163017937717566;
-d113 = 0:
+d113 = 0;
 
 d121 = -0.50501558422258452;
 d122 = 0.86311022453237207;
@@ -82,7 +82,7 @@ d323 = 0;
 
 d331 = -0.6885391914692284;
 d332 = 0.72519913252216561;
-d333 = 0:
+d333 = 0;
 
 
 % Variables
@@ -92,9 +92,10 @@ d333 = 0:
 % Point Equations
 % First set of three equations from the first vector point equation (*) above
 %% Point 1
-variable_group a11, a21, t21, % TODO: eliminate dups
-                   a11, a21, t22,
-                   a11, a21, t23,
+variable_group 
+a11, a21, t21, % TODO: eliminate dups
+a11, a21, t22,
+a11, a21, t23,
 %% Point 2
 a12, a22, t21,
 a12, a22, t22,
@@ -132,6 +133,22 @@ r231, r232, r233,
 r311, r312, r313,
 r321, r322, r323,
 r331, r332, r333;
+
+
+% (e,m); scalars / coordinates of the 3D tangent in (x,d) basis for the tangent plane
+% e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)
+variable_group
+
+% e{view}{point}
+e11, e12, e13,
+e21, e22, e23,
+e31, e32, e33,
+
+m11, m12, m13,
+m21, m22, m23,
+m31, m32, m33;
+
+
 % ---------------------------------------------------------------------
 
 % Point equations (18 eqs = 6 eqs x 3 points)
