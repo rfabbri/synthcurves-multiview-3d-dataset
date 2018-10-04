@@ -117,16 +117,31 @@ r331, r332, r333;
 
 % (e,m); scalars / coordinates of the 3D tangent in (x,d) basis for the tangent plane
 % e_2*x2(:,p) + m_2*d2(:,p) - R_2*(e_1*x1(:,p) + m_1*d1(:,p)) // (***)
-variable_group
-
 % e{view}{point}
-e11, e12, e13,
-e21, e22, e23,
-e31, e32, e33,
 
-m11, m12, m13,
-m21, m22, m23,
-m31, m32, m33;
+hom_variable_group
+e13,
+e23,
+e33,
+m13,
+m23,
+m33;
+
+hom_variable_group
+e12,
+e22,
+e32,
+m12,
+m22,
+m32;
+
+hom_variable_group
+e11,  
+e21,  
+e31,  
+m11,
+m21,
+m31;
 
 
 % ---------------------------------------------------------------------
