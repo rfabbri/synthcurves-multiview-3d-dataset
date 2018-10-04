@@ -3,13 +3,14 @@
 % Implements exactly the point and tangent equations for 3 views, with the 1st
 % view as the reference/world coordinates 
 %
-% Point equations:
-%    a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)
-%    a(3,p)*x_3(:,p) - a(1,p)*R_3*x_1(:,p) - t_3 // (**)
-%
+% Point equations (matlab notation):
+%    a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)  views 2,1 ptfn2p*
+%    a(3,p)*x_3(:,p) - a(1,p)*R_3*x_1(:,p) - t_3 // (**) views 3,1 ptfn3p*
+
 % Tangent equations
-%    e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)
-%    e_3*x_3(:,p) + m_3*d_3(:,p) - R_3*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (****)
+%    e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)  views 2,1 tgfn2p*
+%    e_3*x_3(:,p) + m_3*d_3(:,p) - R_3*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (****) views 3,1 tgfn3p*
+%    where e_v = e_v(p), and also m_v
 %
 % See synthdata_trifocal_simpler_notation.sce for a test of the equations with
 % numeric synthetic data
@@ -194,7 +195,7 @@ ptfn333;
 
 % --- Point equation for view 1 and 2 (*), point 1
 
-% ptfn{view}{point}{coordinate} but x{view}{point}{coordinate}
+% ptfn{view}{point}{coordinate} x{view}{point}{coordinate} a{view}{point}
 ptfn211 = a21*x211 - t21 + a11*r211*x111 + a11*r212*x112 + a11*r213*x113;
 ptfn212 = a21*x212 - t22 + a11*r221*x111 + a11*r222*x112 + a11*r223*x113;
 ptfn213 = a21*x213 - t23 + a11*r231*x111 + a11*r232*x112 + a11*r233*x113;
@@ -231,77 +232,75 @@ ptfn333 = a33*x333 - t33 + a13*r331*x131 + a13*r332*x132 + a13*r333*x133;
 % e_3*x3(:,p) + m_3*d3(:,p) - R_3*(e_1*x1(:,p) + m_1*d1(:,p)) // (****)
 
 function
-tqfn211, 
-tqfn212, 
-tqfn213, 
+tgfn211, 
+tgfn212, 
+tgfn213, 
 
-tqfn221, 
-tqfn222, 
-tqfn223, 
+tgfn221, 
+tgfn222, 
+tgfn223, 
 
-tqfn231, 
-tqfn232, 
-tqfn233, 
+tgfn231, 
+tgfn232, 
+tgfn233, 
 
-tqfn311, 
-tqfn312, 
-tqfn313, 
+tgfn311, 
+tgfn312, 
+tgfn313, 
 
-tqfn321, 
-tqfn322, 
-tqfn323, 
+tgfn321, 
+tgfn322, 
+tgfn323, 
 
-tqfn331, 
-tqfn332, 
-tqfn333;
+tgfn331, 
+tgfn332, 
+tgfn333;
 
 
-% Tangent equation for view 2 (***), point 1
 
 % tgtfn{view}{point}{coordinate}
 % e{view}{point}
 % Dvec{point}{coord} = e_1*x1(:,p) + m_1*d1(:,p)
+
+% Tangent equation for view 2 (***), point 1
 Dvec11 = e11*x111 + m11*d111;
 Dvec12 = e11*x112 + m11*d112;
 Dvec13 = e11*x113 + m11*d113;
-tqfn211 = e21*x211 + m21*d211 - r211*Dvec11 + r212*Dvec12 + r213*Dvec13;
-tqfn212 = e21*x212 + m21*d212 - r221*Dvec11 + r222*Dvec12 + r223*Dvec13;
-tqfn213 = e21*x213 + m21*d213 - r231*Dvec11 + r232*Dvec12 + r233*Dvec13;
+tgfn211 = e21*x211 + m21*d211 - r211*Dvec11 + r212*Dvec12 + r213*Dvec13;
+tgfn212 = e21*x212 + m21*d212 - r221*Dvec11 + r222*Dvec12 + r223*Dvec13;
+tgfn213 = e21*x213 + m21*d213 - r231*Dvec11 + r232*Dvec12 + r233*Dvec13;
 
 % Tangent equation for view 2 (***), point 2
 Dvec21 = e12*x121 + m12*d121;
 Dvec22 = e12*x122 + m12*d122;
 Dvec23 = e12*x123 + m12*d123;
-tqfn221 = e22*x221 + m22*d221 - r211*Dvec21 + r212*Dvec22 + r213*Dvec23;
-tqfn222 = e22*x222 + m22*d222 - r221*Dvec21 + r222*Dvec22 + r223*Dvec23;
-tqfn223 = e22*x223 + m22*d223 - r231*Dvec21 + r232*Dvec22 + r233*Dvec23;
+tgfn221 = e22*x221 + m22*d221 - r211*Dvec21 + r212*Dvec22 + r213*Dvec23;
+tgfn222 = e22*x222 + m22*d222 - r221*Dvec21 + r222*Dvec22 + r223*Dvec23;
+tgfn223 = e22*x223 + m22*d223 - r231*Dvec21 + r232*Dvec22 + r233*Dvec23;
 
 % Tangent equation for view 2 (***), point 3
 Dvec31 = e13*x131 + m13*d131;
 Dvec32 = e13*x132 + m13*d132;
 Dvec33 = e13*x133 + m13*d133;
-tqfn231 = e23*x231 + m23*d231 - r211*Dvec31 + r212*Dvec32 + r213*Dvec33;
-tqfn232 = e23*x232 + m23*d232 - r221*Dvec31 + r222*Dvec32 + r223*Dvec33;
-tqfn233 = e23*x233 + m23*d233 - r231*Dvec31 + r232*Dvec32 + r233*Dvec33;
+tgfn231 = e23*x231 + m23*d231 - r211*Dvec31 + r212*Dvec32 + r213*Dvec33;
+tgfn232 = e23*x232 + m23*d232 - r221*Dvec31 + r222*Dvec32 + r223*Dvec33;
+tgfn233 = e23*x233 + m23*d233 - r231*Dvec31 + r232*Dvec32 + r233*Dvec33;
 
+% ----
 % Tangent equation for view 3 (***), point 1
-
-% tgtfn{view}{point}{coordinate}
-% e{view}{point}
-% Dvec{view}{point}{coord} = e_1*x1(:,p) + m_1*d1(:,p)
-tqfn311 = e31*x311 + m31*d311 - r311*Dvec11 + r312*Dvec12 + r313*Dvec13;
-tqfn312 = e31*x312 + m31*d312 - r321*Dvec11 + r322*Dvec12 + r323*Dvec13;
-tqfn313 = e31*x313 + m31*d313 - r331*Dvec11 + r332*Dvec12 + r333*Dvec13;
+tgfn311 = e31*x311 + m31*d311 - r311*Dvec11 + r312*Dvec12 + r313*Dvec13;
+tgfn312 = e31*x312 + m31*d312 - r321*Dvec11 + r322*Dvec12 + r323*Dvec13;
+tgfn313 = e31*x313 + m31*d313 - r331*Dvec11 + r332*Dvec12 + r333*Dvec13;
 
 % Tangent equation for view 3 (***), point 2
-tqfn321 = e32*x321 + m32*d321 - r311*Dvec21 + r312*Dvec22 + r313*Dvec23;
-tqfn322 = e32*x322 + m32*d322 - r321*Dvec21 + r322*Dvec22 + r323*Dvec23;
-tqfn323 = e32*x323 + m32*d323 - r331*Dvec21 + r332*Dvec22 + r333*Dvec23;
+tgfn321 = e32*x321 + m32*d321 - r311*Dvec21 + r312*Dvec22 + r313*Dvec23;
+tgfn322 = e32*x322 + m32*d322 - r321*Dvec21 + r322*Dvec22 + r323*Dvec23;
+tgfn323 = e32*x323 + m32*d323 - r331*Dvec21 + r332*Dvec22 + r333*Dvec23;
 
 % Tangent equation for view 3 (***), point 3
-tqfn331 = e33*x331 + m33*d331 - r311*Dvec31 + r312*Dvec32 + r313*Dvec33;
-tqfn332 = e33*x332 + m33*d332 - r321*Dvec31 + r322*Dvec32 + r323*Dvec33;
-tqfn333 = e33*x333 + m33*d333 - r331*Dvec31 + r332*Dvec32 + r333*Dvec33;
+tgfn331 = e33*x331 + m33*d331 - r311*Dvec31 + r312*Dvec32 + r313*Dvec33;
+tgfn332 = e33*x332 + m33*d332 - r321*Dvec31 + r322*Dvec32 + r323*Dvec33;
+tgfn333 = e33*x333 + m33*d333 - r331*Dvec31 + r332*Dvec32 + r333*Dvec33;
 
 
 % ---------------------------------------------------------------------
