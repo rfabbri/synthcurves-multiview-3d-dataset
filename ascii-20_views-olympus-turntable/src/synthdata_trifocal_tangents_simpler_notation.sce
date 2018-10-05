@@ -83,9 +83,12 @@ max(d_proj_3_way2_unit - d3)
 //e = zeros(nviews,total_npts); // 3-vector epsilon
 //m = zeros(nviews,total_npts); // 3-vector mu
 
+b=zeros(3,3);
+e=zeros(3,3);
+m=zeros(3,3);
 disp 'tangent equations (must be zero)'
-for p=selected_point_ids
-
+for pi=1:3
+  p = selected_point_ids(pi);
   // let us build scalars that work, using known points and cameras
 
   // betas for eta = 1
@@ -94,9 +97,12 @@ for p=selected_point_ids
   b3 = X3(3,p) + D3(3,p);
   
   // epsilons
-  e1 = b1 - a(1,p);
-  e2 = b2 - a(2,p);
-  e3 = b3 - a(3,p);
+  e(1,pi) = b1 - a(1,p);
+  e1 = e(1,pi);
+  e(2,pi) = b2 - a(2,p);
+  e2 = e(2,pi);
+  e(3,pi) = b3 - a(3,p);
+  e3 = e(3,pi);
 
   // gammas
   g1 = d_proj_1_way2_norm(p);
@@ -104,9 +110,12 @@ for p=selected_point_ids
   g3 = d_proj_3_way2_norm(p);
 
   // mu's
-  m1 = b1*g1;
-  m2 = b2*g2;
-  m3 = b3*g3;
+  m(1,pi) = b1*g1;
+  m1 = m(1,pi);
+  m(2,pi) = b2*g2;
+  m2 = m(2,pi);
+  m(3,pi) = b3*g3;
+  m3 = m(3,pi);
   
   //   TANGENT EQS
   e2*x2(:,p) + m2*d2(:,p) - R2*(e1*x1(:,p) + m1*d1(:,p)) // (***)
