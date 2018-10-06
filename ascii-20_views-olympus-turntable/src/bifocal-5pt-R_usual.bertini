@@ -1,0 +1,219 @@
+
+% AUTHORS
+%   Ricardo Fabbri  rfabbri@gmail.com - initial author
+%
+% 5pt problem study, point only
+%    - point ids 689 2086 4968
+%    - views 3 11
+%
+% Implements exactly the point equations without eliminationk,
+% for 2 views, with the 1st view as the reference/world coordinates.
+%
+% Point equations (matlab notation):
+%    a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)  views 2,1 ptfn2p*
+% p ranging from 1 to 5
+
+% TODO: make pre-tests to make sure these ground truth points are far from degenerate
+% Indexing is eg x{view}{point}{coordinate}
+
+%------------------------------
+% Uncomment for evaluating on ground truth points to test if 0
+% Call as:  bertini <this_file.bertini> <this_file.groundtruth>
+% Shortcut  bertini this_file*
+%CONFIG
+%  TrackType:-4;
+%  MPType:1;
+%  Precision:128;
+%END;
+%------------------------------
+
+INPUT 
+
+constant 
+x111, 
+x112, 
+x113, 
+
+x121, 
+x122, 
+x123, 
+
+x131, 
+x132, 
+x133, 
+
+x141, 
+x142, 
+x143, 
+
+x151, 
+x152, 
+x153, 
+
+% --
+x211, 
+x212, 
+x213,
+
+x221, 
+x222, 
+x223, 
+
+x231, 
+x232, 
+x233,
+
+x241, 
+x242, 
+x243,
+
+x251, 
+x252, 
+x253;
+
+
+% Set these inputs: 
+% scilab: x1(:,selected_point_ids) and so on
+
+% 2D points
+x111 = -0.01609589159371727;
+x112 = 0.0861548623366261;
+x113 = 1;
+
+x121 = -0.01421529931862033;
+x122 = 0.15164819506961155;
+x123 = 1;
+
+x131 = 0.0155829286858466;
+x132 = 0.12352302780175817;
+x133 = 1;
+
+x141 = -0.03320020825462477;
+x142 = 0.10476505027301419;
+x143 = 1;
+
+x151 = -0.03303093347154548;
+x152 = 0.17601166665337448;
+x153 = 1;
+
+x211 = 0.01389192462875502;
+x212 = 0.08595606183440178;
+x213 = 1;
+
+x221 = 0.0137394337121674;
+x222 = 0.1515915437407269;
+x223 = 1;
+
+x231 = 0.02520938938602093;
+x232 = 0.12793300445393241;
+x233 = 1;
+
+x241 = -0.05082082707844703;
+x242 = 0.09656145335622426;
+x243 = 1;
+
+x251 = -0.03967228910752616;
+x252 = 0.1666555715894824;
+x253 = 1;
+
+% Variables
+% Translation and depths are a homogeneous group in each eq
+%
+% -------------------
+% Point Equations
+% First set of three equations from the first vector point equation (*) above
+variable_group 
+a11, a12, a13, a14, a15,
+a21, a22, a23, a24, a25,
+t21,
+t22,
+t23;
+
+% Rotations
+% try different parametrizations for rotations. Lets try standard
+
+variable_group 
+r211, r212, r213,
+r221, r222, r223,
+r231, r232, r233;
+
+% ---------------------------------------------------------------------
+
+% Point equations (18 eqs = 6 eqs x 3 points)
+%  a(2,p)*x2(:,p) - a(1,p)*R_2*x1(:,p) - t_2 // (*)
+% or
+%  a(2,p)*x2(:,p) - t_2 - a(1,p)*R_2*x1(:,p) // (view 2, from 1 *)
+%  a(3,p)*x3(:,p) - t_3 - a(1,p)*R_3*x1(:,p) // (view 3, from 1 **)
+
+function 
+ptfn211,
+ptfn212,
+ptfn213,
+
+ptfn221,
+ptfn222,
+ptfn223,
+
+ptfn231,
+ptfn232,
+ptfn233,
+
+ptfn241,
+ptfn242,
+ptfn243,
+
+ptfn251,
+ptfn252,
+ptfn253;
+
+% e-- Point equation for view 1 and 2 (*), point 1
+
+% ptfn{view}{point}{coordinate} x{view}{point}{coordinate} a{view}{point}
+ptfn211 = a21*x211 - t21 - a11*r211*x111 - a11*r212*x112 - a11*r213*x113;
+ptfn212 = a21*x212 - t22 - a11*r221*x111 - a11*r222*x112 - a11*r223*x113;
+ptfn213 = a21*x213 - t23 - a11*r231*x111 - a11*r232*x112 - a11*r233*x113;
+
+% Point equation (*), point 2
+ptfn221 = a22*x221 - t21 - a12*r211*x121 - a12*r212*x122 - a12*r213*x123;
+ptfn222 = a22*x222 - t22 - a12*r221*x121 - a12*r222*x122 - a12*r223*x123;
+ptfn223 = a22*x223 - t23 - a12*r231*x121 - a12*r232*x122 - a12*r233*x123;
+
+% Point equation (*), point 3
+ptfn231 = a23*x231 - t21 - a13*r211*x131 - a13*r212*x132 - a13*r213*x133;
+ptfn232 = a23*x232 - t22 - a13*r221*x131 - a13*r222*x132 - a13*r223*x133;
+ptfn233 = a23*x233 - t23 - a13*r231*x131 - a13*r232*x132 - a13*r233*x133;
+
+% Point equation (*), point 4
+ptfn241 = a24*x241 - t21 - a14*r211*x141 - a14*r212*x142 - a14*r213*x143;
+ptfn242 = a24*x242 - t22 - a14*r221*x141 - a14*r222*x142 - a14*r223*x143;
+ptfn243 = a24*x243 - t23 - a14*r231*x141 - a14*r232*x142 - a14*r233*x143;
+
+% Point equation (*), point 5
+ptfn251 = a25*x251 - t21 - a15*r211*x151 - a15*r212*x152 - a15*r213*x153;
+ptfn252 = a25*x252 - t22 - a15*r221*x151 - a15*r222*x152 - a15*r223*x153;
+ptfn253 = a25*x253 - t23 - a15*r231*x151 - a15*r232*x152 - a15*r233*x153;
+
+% ---------------------------------------------------------------------
+% Rotation constraints
+function
+rfn21,
+rfn22,
+rfn23,
+
+rfn24,
+rfn25,
+rfn26,
+
+rfn27;
+
+
+% rfn{view id}{constraint id}
+rfn21 = r211^2 + r221^2 + r231^2 - 1;
+rfn22 = r212^2 + r222^2 + r232^2 - 1;
+rfn23 = r213^2 + r223^2 + r233^2 - 1; %----
+rfn24 = r211*r212 + r221*r222 + r231*r232;
+rfn25 = r211*r213 + r221*r223 + r231*r233;
+rfn26 = r212*r213 + r222*r223 + r232*r233; %----
+rfn27 = r211*r222*r233 - r211*r223*r232 + r212*r223*r231 - r212*r221*r233 + r213*r221*r232 - r213*r231*r222 - 1;
+
+END;
