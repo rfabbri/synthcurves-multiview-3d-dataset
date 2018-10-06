@@ -20,11 +20,11 @@
 % Uncomment for evaluating on ground truth points to test if 0
 % Call as:  bertini <this_file.bertini> <this_file.groundtruth>
 % Shortcut  bertini this_file*
-%CONFIG
-%  TrackType:-4;
-%  MPType:1;
-%  Precision:128;
-%END;
+CONFIG
+  TrackType:-4;
+  MPType:1;
+  Precision:128;
+END;
 %------------------------------
 
 INPUT 
@@ -107,121 +107,18 @@ function
 E1, E2, E3, E4, E5;
 
 
+E1 = -x112*c1*c3*c4*c5 +x212*c2*c3*c4*c5 -x212*x111*c4*c5*s2 -x212*x111*c1*c2*s4 +x112*x211*c1*c3*s4 -x112*x211*c2*c4*s3*s5 -x112*c4*c5*s1*s3*s2 +x112*c1*c4*s3*s5*s2 -x212*c1*c3*s4*s2 -x112*x212*c1*s3*s4*s2 -x112*c3*c4*s1*s5 +x112*x212*c2*c4*c5*s3 +x112*x212*c3*s1*s4 +x211*c3*s1*s4*s2 +x111*x211*c4*s5*s2 -x111*c2*c4*c5*s1 +x111*c1*c2*c4*s5 -x211*c1*s3*s4 -x211*c2*c3*c4*s5 +x111*x211*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x112*x211*s1*s3*s4*s2 -x212*s1*s3*s4;
+E2 = -x122*c1*c3*c4*c5 +x222*c2*c3*c4*c5 -x222*x121*c4*c5*s2 -x222*x121*c1*c2*s4 +x122*x221*c1*c3*s4 -x122*x221*c2*c4*s3*s5 -x122*c4*c5*s1*s3*s2 +x122*c1*c4*s3*s5*s2 -x222*c1*c3*s4*s2 -x122*x222*c1*s3*s4*s2 -x122*c3*c4*s1*s5 +x122*x222*c2*c4*c5*s3 +x122*x222*c3*s1*s4 +x221*c3*s1*s4*s2 +x121*x221*c4*s5*s2 -x121*c2*c4*c5*s1 +x121*c1*c2*c4*s5 -x221*c1*s3*s4 -x221*c2*c3*c4*s5 +x121*x221*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x122*x221*s1*s3*s4*s2 -x222*s1*s3*s4;
+E3 = -x132*c1*c3*c4*c5 +x232*c2*c3*c4*c5 -x232*x131*c4*c5*s2 -x232*x131*c1*c2*s4 +x132*x231*c1*c3*s4 -x132*x231*c2*c4*s3*s5 -x132*c4*c5*s1*s3*s2 +x132*c1*c4*s3*s5*s2 -x232*c1*c3*s4*s2 -x132*x232*c1*s3*s4*s2 -x132*c3*c4*s1*s5 +x132*x232*c2*c4*c5*s3 +x132*x232*c3*s1*s4 +x231*c3*s1*s4*s2 +x131*x231*c4*s5*s2 -x131*c2*c4*c5*s1 +x131*c1*c2*c4*s5 -x231*c1*s3*s4 -x231*c2*c3*c4*s5 +x131*x231*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x132*x231*s1*s3*s4*s2 -x232*s1*s3*s4;
+E4 = -x142*c1*c3*c4*c5 +x242*c2*c3*c4*c5 -x242*x141*c4*c5*s2 -x242*x141*c1*c2*s4 +x142*x241*c1*c3*s4 -x142*x241*c2*c4*s3*s5 -x142*c4*c5*s1*s3*s2 +x142*c1*c4*s3*s5*s2 -x242*c1*c3*s4*s2 -x142*x242*c1*s3*s4*s2 -x142*c3*c4*s1*s5 +x142*x242*c2*c4*c5*s3 +x142*x242*c3*s1*s4 +x241*c3*s1*s4*s2 +x141*x241*c4*s5*s2 -x141*c2*c4*c5*s1 +x141*c1*c2*c4*s5 -x241*c1*s3*s4 -x241*c2*c3*c4*s5 +x141*x241*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x142*x241*s1*s3*s4*s2 -x242*s1*s3*s4;
+E5 = -x152*c1*c3*c4*c5 +x252*c2*c3*c4*c5 -x252*x151*c4*c5*s2 -x252*x151*c1*c2*s4 +x152*x251*c1*c3*s4 -x152*x251*c2*c4*s3*s5 -x152*c4*c5*s1*s3*s2 +x152*c1*c4*s3*s5*s2 -x252*c1*c3*s4*s2 -x152*x252*c1*s3*s4*s2 -x152*c3*c4*s1*s5 +x152*x252*c2*c4*c5*s3 +x152*x252*c3*s1*s4 +x251*c3*s1*s4*s2 +x151*x251*c4*s5*s2 -x151*c2*c4*c5*s1 +x151*c1*c2*c4*s5 -x251*c1*s3*s4 -x251*c2*c3*c4*s5 +x151*x251*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x152*x251*s1*s3*s4*s2 -x252*s1*s3*s4;
 
-E1 = x112*c1*c3*c4*c5+
-x212*c2*c3*c4*c5-
-x212*x111*c4*c5*s2-
-x212*x111*c1*c2*s4+
-x112*x211*c1*c3*s4-
-x112*x211*c2*c4*s3*s5-
-x112*c4*c5*s1*s3*s2+
-x112*c1*c4*s3*s5*s2-
-x212*c1*c3*s4*s2-
-x112*x212*c1*s3*s4*s2-
-x112*c3*c4*s1*s5+
-x112*x212*c2*c4*c5*s3+
-x112*x212*c3*s1*s4+
-x211*c3*s1*s4*s2+
-x111*x211*c4*s5*s2-
-x111*c2*c4*c5*s1+
-x111*c1*c2*c4*s5-
-x211*c1*s3*s4-
-x211*c2*c3*c4*s5+
-x111*x211*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+
-x112*x211*s1*s3*s4*s2-
-x212*s1*s3*s4;
-
-E2 = x122*c1*c3*c4*c5+
-x222*c2*c3*c4*c5-
-x222*x121*c4*c5*s2-
-x222*x121*c1*c2*s4+
-x122*x221*c1*c3*s4-
-x122*x221*c2*c4*s3*s5-
-x122*c4*c5*s1*s3*s2+
-x122*c1*c4*s3*s5*s2-
-x222*c1*c3*s4*s2-
-x122*x222*c1*s3*s4*s2-
-x122*c3*c4*s1*s5+
-x122*x222*c2*c4*c5*s3+
-x122*x222*c3*s1*s4+
-x221*c3*s1*s4*s2+
-x121*x221*c4*s5*s2-
-x121*c2*c4*c5*s1+
-x121*c1*c2*c4*s5-
-x221*c1*s3*s4-
-x221*c2*c3*c4*s5+
-x121*x221*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+
-x122*x221*s1*s3*s4*s2-
-x222*s1*s3*s4;
-
-E3 = x132*c1*c3*c4*c5+
-x232*c2*c3*c4*c5-
-x232*x131*c4*c5*s2-
-x232*x131*c1*c2*s4+
-x132*x231*c1*c3*s4-
-x132*x231*c2*c4*s3*s5-
-x132*c4*c5*s1*s3*s2+
-x132*c1*c4*s3*s5*s2-
-x232*c1*c3*s4*s2-
-x132*x232*c1*s3*s4*s2-
-x132*c3*c4*s1*s5+
-x132*x232*c2*c4*c5*s3+
-x132*x232*c3*s1*s4+
-x231*c3*s1*s4*s2+
-x131*x231*c4*s5*s2-
-x131*c2*c4*c5*s1+
-x131*c1*c2*c4*s5-
-x231*c1*s3*s4-
-x231*c2*c3*c4*s5+
-x131*x231*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+
-x132*x231*s1*s3*s4*s2-
-x232*s1*s3*s4;
-
-E4 = x142*c1*c3*c4*c5+
-x242*c2*c3*c4*c5-
-x242*x141*c4*c5*s2-
-x242*x141*c1*c2*s4+
-x142*x241*c1*c3*s4-
-x142*x241*c2*c4*s3*s5-
-x142*c4*c5*s1*s3*s2+
-x142*c1*c4*s3*s5*s2-
-x242*c1*c3*s4*s2-
-x142*x242*c1*s3*s4*s2-
-x142*c3*c4*s1*s5+
-x142*x242*c2*c4*c5*s3+
-x142*x242*c3*s1*s4+
-x241*c3*s1*s4*s2+
-x141*x241*c4*s5*s2-
-x141*c2*c4*c5*s1+
-x141*c1*c2*c4*s5-
-x241*c1*s3*s4-
-x241*c2*c3*c4*s5+
-x141*x241*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+
-x142*x241*s1*s3*s4*s2-
-x242*s1*s3*s4;
-
-E5 = x152*c1*c3*c4*c5+
-x252*c2*c3*c4*c5-
-x252*x151*c4*c5*s2-
-x252*x151*c1*c2*s4+
-x152*x251*c1*c3*s4-
-x152*x251*c2*c4*s3*s5-
-x152*c4*c5*s1*s3*s2+
-x152*c1*c4*s3*s5*s2-
-x252*c1*c3*s4*s2-
-x152*x252*c1*s3*s4*s2-
-x152*c3*c4*s1*s5+
-x152*x252*c2*c4*c5*s3+
-x152*x252*c3*s1*s4+
-x251*c3*s1*s4*s2+
-x151*x251*c4*s5*s2-
-x151*c2*c4*c5*s1+
-x151*c1*c2*c4*s5-
-x251*c1*s3*s4-
-x251*c2*c3*c4*s5+
-x151*x251*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+
-x152*x251*s1*s3*s4*s2-
-x252*s1*s3*s4;
+function
+RFN1,
+RFN2,
+RFN3,
+RFN4,
+RFN5;
 
 RFN1 = c1*c1 + s1*s1 - 1;
 RFN2 = c2*c2 + s2*s2 - 1;

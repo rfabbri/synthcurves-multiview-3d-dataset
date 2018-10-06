@@ -138,3 +138,31 @@ s5 = sin(bbeta);
 rho = norm(t2);
 
 t2_tst = rho*[c4*c5; c4*s5; s4];
+
+cs=[c1
+ s1
+ c2
+ s2
+ c3
+ s3
+ c4
+ s4
+ c5
+ s5];
+
+
+for p=selected_point_ids
+  // a(2,p)*x2(:,p) - a(1,p)*R2*x1(:,p) - t2 // (* sincos version)
+ disp 'point'
+  
+//  x1(2,p)*c1*c3*c4*c5+ x2(2,p)*c2*c3*c4*c5- x2(2,p)*x1(1,p)*c4*c5*s2- x2(2,p)*x1(1,p)*c1*c2*s4+ x1(2,p)*x2(1,p)*c1*c3*s4- x1(2,p)*x2(1,p)*c2*c4*s3*s5- x1(2,p)*c4*c5*s1*s3*s2+ x1(2,p)*c1*c4*s3*s5*s2- x2(2,p)*c1*c3*s4*s2- x1(2,p)*x2(2,p)*c1*s3*s4*s2- x1(2,p)*c3*c4*s1*s5+ x1(2,p)*x2(2,p)*c2*c4*c5*s3+ x1(2,p)*x2(2,p)*c3*s1*s4+ x2(1,p)*c3*s1*s4*s2+ x1(1,p)*x2(1,p)*c4*s5*s2- x1(1,p)*c2*c4*c5*s1+ x1(1,p)*c1*c2*c4*s5- x2(1,p)*c1*s3*s4- x2(1,p)*c2*c3*c4*s5+ x1(1,p)*x2(1,p)*c2*s1*s4-c3*c4*c5*s1*s2+c1*c3*c4*s5*s2+c1*c4*c5*s3+c4*s1*s3*s5+ x1(2,p)*x2(1,p)*s1*s3*s4*s2- x2(2,p)*s1*s3*s4
+ 
+    (c4*c5 - s4*x2(1,p))*(-s2*x1(1,p)*x2(2,p) + c2*s3*x1(2,p)*x2(2,p) + c2*c3*x2(2,p)-c2*s1*x1(1,p) - c1*c3*x1(2,p) - s1*s2*s3*x1(2,p) - c3*s1*s2 + c1*s3) + (s4*x2(2,p) - c4*s5) * (-s2*x1(1,p)*x2(1,p) + c2*s3*x1(2,p)*x2(1,p) + c2*c3*x2(1,p) - c1*c2*x1(1,p) - c1*s2*s3*x1(2,p) + c3*s1*x1(2,p) - s1*s3-c1*c3*s2)
+
+
+disp 'distrib'
+    
+-x1(2,p)*c1*c3*c4*c5 +x2(2,p)*c2*c3*c4*c5 -x2(2,p)*x1(1,p)*c4*c5*s2 -x2(2,p)*x1(1,p)*c1*c2*s4 +x1(2,p)*x2(1,p)*c1*c3*s4 -x1(2,p)*x2(1,p)*c2*c4*s3*s5 -x1(2,p)*c4*c5*s1*s3*s2 +x1(2,p)*c1*c4*s3*s5*s2 -x2(2,p)*c1*c3*s4*s2 -x1(2,p)*x2(2,p)*c1*s3*s4*s2 -x1(2,p)*c3*c4*s1*s5 +x1(2,p)*x2(2,p)*c2*c4*c5*s3 +x1(2,p)*x2(2,p)*c3*s1*s4 +x2(1,p)*c3*s1*s4*s2 +x1(1,p)*x2(1,p)*c4*s5*s2 -x1(1,p)*c2*c4*c5*s1 +x1(1,p)*c1*c2*c4*s5 -x2(1,p)*c1*s3*s4 -x2(1,p)*c2*c3*c4*s5 +x1(1,p)*x2(1,p)*c2*s1*s4 -c3*c4*c5*s1*s2 +c1*c3*c4*s5*s2 +c1*c4*c5*s3 +c4*s1*s3*s5 +x1(2,p)*x2(1,p)*s1*s3*s4*s2 -x2(2,p)*s1*s3*s4
+  
+ 
+end
