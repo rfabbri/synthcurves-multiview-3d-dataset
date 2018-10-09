@@ -211,20 +211,7 @@ ptfn33 = x331*(t32*R3x133 - t33*R3x132) + x332*(-t31*R3x133 + t33*R3x131) + x333
 % ---------------------------------------------------------------------
 % Tangent constraints
 
-
-% R*(xvp x dvp)
-%  Rxdvp1=-r11*dvp2 + r12*dvp1 + r13*xvp1*dvp2 - r13*xvp2*dvp1;
-%  Rxdvp2=-r21*dvp2 + r22*dvp1 + r23*xvp1*dvp2 - r23*xvp2*dvp1;
-%  Rxdvp3=-r31*dvp2 + r32*dvp1 + r33*xvp1*dvp2 - r33*xvp2*dvp1;
-
-
-% -------- Point track 1
-% det [n1 | n2 | n3] = 0  for normals n1, n2 and n3
-function tst;
-tst=6969696969;
-
-% rrik = r3i1*r2k1 + r3i2*r2k2 + r3i3*r2k3;
-
+% Aux variables: R3*R2'
 rr11 = r311*r211 + r312*r212 + r313*r213;
 rr12 = r311*r221 + r312*r222 + r313*r223;
 rr13 = r311*r231 + r312*r232 + r313*r233;
@@ -237,31 +224,80 @@ rr31 = r331*r211 + r332*r212 + r333*r213;
 rr32 = r331*r221 + r332*r222 + r333*r223;
 rr33 = r331*r231 + r332*r232 + r333*r233;
 
-n11 =-r311*d112 + r312*d111 + r313*x111*d112 - r313*x112*d111;
-n21 =-r321*d112 + r322*d111 + r323*x111*d112 - r323*x112*d111;
-n31 =-r331*d112 + r332*d111 + r333*x111*d112 - r333*x112*d111;
+% R*(xvp x dvp)
+%  Rxdvp1=-r11*dvp2 + r12*dvp1 + r13*xvp1*dvp2 - r13*xvp2*dvp1;
+%  Rxdvp2=-r21*dvp2 + r22*dvp1 + r23*xvp1*dvp2 - r23*xvp2*dvp1;
+%  Rxdvp3=-r31*dvp2 + r32*dvp1 + r33*xvp1*dvp2 - r33*xvp2*dvp1;
 
+% -------- Point-tangent triplet track 1
+% det [n1 | n2 | n3] = 0  for normals n1, n2 and n3
+% rrik = r3i1*r2k1 + r3i2*r2k2 + r3i3*r2k3;
 
+n111 =-r311*d112 + r312*d111 + r313*x111*d112 - r313*x112*d111;
+n121 =-r321*d112 + r322*d111 + r323*x111*d112 - r323*x112*d111;
+n131 =-r331*d112 + r332*d111 + r333*x111*d112 - r333*x112*d111;
 
 % R*(xvp x dvp)
-n12 =-rr11*d212 + rr12*d211 + rr13*x211*d212 - rr13*x212*d211;
-n22 =-rr21*d212 + rr22*d211 + rr23*x211*d212 - rr23*x212*d211;
-n32 =-rr31*d212 + rr32*d211 + rr33*x211*d212 - rr33*x212*d211;
+n112 =-rr11*d212 + rr12*d211 + rr13*x211*d212 - rr13*x212*d211;
+n122 =-rr21*d212 + rr22*d211 + rr23*x211*d212 - rr23*x212*d211;
+n132 =-rr31*d212 + rr32*d211 + rr33*x211*d212 - rr33*x212*d211;
 
+n113 = -d312;
+n123 = d311;
+n133 = x311*d312 - x312*d311;
+
+function tgfn1;
+
+tgfn1 = n111*n122*n133 - n111*n123*n132 + n112*n123*n131 - n112*n121*n133 + n113*n121*n132 - n113*n122*n131;
+
+
+% -------- Point-tangent triplet track 2
+% det [n1 | n2 | n3] = 0  for normals n1, n2 and n3
+% rrik = r3i1*r2k1 + r3i2*r2k2 + r3i3*r2k3;
+
+n211 =-r311*d122 + r312*d121 + r313*x121*d122 - r313*x122*d121;
+n221 =-r321*d122 + r322*d121 + r323*x121*d122 - r323*x122*d121;
+n231 =-r331*d122 + r332*d121 + r333*x121*d122 - r333*x122*d121;
+
+% R*(xvp x dvp)
+n212 =-rr11*d222 + rr12*d221 + rr13*x221*d222 - rr13*x222*d221;
+n222 =-rr21*d222 + rr22*d221 + rr23*x221*d222 - rr23*x222*d221;
+n232 =-rr31*d222 + rr32*d221 + rr33*x221*d222 - rr33*x222*d221;
 
 function marker2;
 marker2 = 778778778778;
 
-n13 = -d312;
-n23 = d311;
-n33 = x311*d312 - x312*d311;
+n213 = -d322;
+n223 = d321;
+n233 = x321*d322 - x322*d321;
 
 function tgfn1;
 
-tgfn1 = n11*n22*n33 - n11*n23*n32 + n12*n23*n31 - n12*n21*n33 + n13*n21*n32 - n13*n22*n31;
+tgfn1 = n211*n222*n233 - n211*n223*n232 + n212*n223*n231 - n212*n221*n233 + n213*n221*n232 - n213*n222*n231;
 
+% -------- Point-tangent triplet track 3
+% det [n1 | n2 | n3] = 0  for normals n1, n2 and n3
+% rrik = r3i1*r2k1 + r3i2*r2k2 + r3i3*r2k3;
 
-% -------- Point track 2
+n311 =-r311*d132 + r312*d131 + r313*x131*d132 - r313*x132*d131;
+n321 =-r321*d132 + r322*d131 + r323*x131*d132 - r323*x132*d131;
+n331 =-r331*d132 + r332*d131 + r333*x131*d132 - r333*x132*d131;
+
+% R*(xvp x dvp)
+n312 =-rr11*d232 + rr12*d231 + rr13*x231*d232 - rr13*x232*d231;
+n322 =-rr21*d232 + rr22*d231 + rr23*x231*d232 - rr23*x232*d231;
+n332 =-rr31*d232 + rr32*d231 + rr33*x231*d232 - rr33*x232*d231;
+
+function marker3;
+marker3 = 44444444;
+
+n313 = -d332;
+n323 = d331;
+n333 = x331*d332 - x332*d331;
+
+function tgfn1;
+
+tgfn1 = n311*n322*n333 - n311*n323*n332 + n312*n323*n331 - n312*n321*n333 + n313*n321*n332 - n313*n322*n331;
 
 
 % ---------------------------------------------------------------------
