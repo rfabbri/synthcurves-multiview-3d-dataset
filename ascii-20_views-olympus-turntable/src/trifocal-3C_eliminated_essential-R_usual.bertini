@@ -156,7 +156,7 @@ r331, r332, r333;
 %%   %ptfnvp = xvp1*(tv2*Rvx1p3 - tv3*Rvx1p2) + xvp2*(-tv1*Rvx1p3 + tv3*Rvx1p1) + xvp3*(-tv2*Rvx1p1 + tv1*Rvx1p2);
 
 % -------- View 2
-% Point 1, view 1
+% Point 1
 R2x111 = r211*x111 + r212*x112 + r213*x113;
 R2x112 = r221*x111 + r222*x112 + r223*x113;
 R2x113 = r231*x111 + r232*x112 + r233*x113;
@@ -164,7 +164,7 @@ function ptfn21;
 % view v, point p epipolar constraint
 ptfn21 = x211*(t22*R2x113 - t23*R2x112) + x212*(-t21*R2x113 + t23*R2x111) + x213*(-t22*R2x111 + t21*R2x112);
 
-% Point 2, view 1
+% Point 2
 R2x121 = r211*x121 + r212*x122 + r213*x123;
 R2x122 = r221*x121 + r222*x122 + r223*x123;
 R2x123 = r231*x121 + r232*x122 + r233*x123;
@@ -172,7 +172,7 @@ function ptfn22;
 % view v \in {2,3}, point p epipolar constraint
 ptfn22 = x221*(t22*R2x123 - t23*R2x122) + x222*(-t21*R2x123 + t23*R2x121) + x223*(-t22*R2x121 + t21*R2x122);
 
-% Point 3, view 1
+% Point 3
 R2x131 = r211*x131 + r212*x132 + r213*x133;
 R2x132 = r221*x131 + r222*x132 + r223*x133;
 R2x133 = r231*x131 + r232*x132 + r233*x133;
@@ -181,6 +181,7 @@ function ptfn23;
 ptfn23 = x231*(t22*R2x133 - t23*R2x132) + x232*(-t21*R2x133 + t23*R2x131) + x233*(-t22*R2x131 + t21*R2x132);
 
 % -------- View 3
+% Point 1
 R3x111 = r311*x111 + r312*x112 + r313*x113;
 R3x112 = r321*x111 + r322*x112 + r323*x113;
 R3x113 = r331*x111 + r332*x112 + r333*x113;
@@ -189,6 +190,7 @@ function ptfn31;
 % view v \in {2,3}, point p epipolar constraint
 ptfn31 = x311*(t32*R3x113 - t33*R3x112) + x312*(-t31*R3x113 + t33*R3x111) + x313*(-t32*R3x111 + t31*R3x112);
 
+% Point 2
 R3x121 = r311*x121 + r312*x122 + r313*x123;
 R3x122 = r321*x121 + r322*x122 + r323*x123;
 R3x123 = r331*x121 + r332*x122 + r333*x123;
@@ -197,6 +199,7 @@ function ptfn32;
 % view v \in {2,3}, point p epipolar constraint
 ptfn32 = x321*(t32*R3x123 - t33*R3x122) + x322*(-t31*R3x123 + t33*R3x121) + x323*(-t32*R3x121 + t31*R3x122);
 
+% Point 3
 R3x131 = r311*x131 + r312*x132 + r313*x133;
 R3x132 = r321*x131 + r322*x132 + r323*x133;
 R3x133 = r331*x131 + r332*x132 + r333*x133;
@@ -204,6 +207,54 @@ R3x133 = r331*x131 + r332*x132 + r333*x133;
 function ptfn33;
 % view v \in {2,3}, point p epipolar constraint
 ptfn33 = x331*(t32*R3x133 - t33*R3x132) + x332*(-t31*R3x133 + t33*R3x131) + x333*(-t32*R3x131 + t31*R3x132);
+
+% ---------------------------------------------------------------------
+% Tangent constraints
+
+
+% R*(xvp x dvp)
+%  Rxdvp1=-r11*dvp2 + r12*dvp1 + r13*xvp1*dvp2 - r13*xvp2*dvp1;
+%  Rxdvp2=-r21*dvp2 + r22*dvp1 + r23*xvp1*dvp2 - r23*xvp2*dvp1;
+%  Rxdvp3=-r31*dvp2 + r32*dvp1 + r33*xvp1*dvp2 - r33*xvp2*dvp1;
+
+
+% -------- Point track 1
+% det [n1 | n2 | n3] = 0  for normals n1, n2 and n3
+function tst;
+tst=6969696969;
+
+% rrik = r3i1*r2k1 + r3i2*r2k2 + r3i3*r2k3;
+
+rr11 = r311*r211 + r312*r212 + r313*r213;
+rr12 = r311*r221 + r312*r222 + r313*r223;
+rr13 = r311*r231 + r312*r232 + r313*r233;
+
+rr21 = r321*r211 + r322*r212 + r323*r213;
+rr22 = r321*r221 + r322*r222 + r323*r223;
+rr23 = r321*r231 + r322*r232 + r323*r233;
+
+rr31 = r331*r211 + r332*r212 + r333*r213;
+rr32 = r331*r221 + r332*r222 + r333*r223;
+rr33 = r331*r231 + r332*r232 + r333*r233;
+
+function n11, n21, n31;
+n11 =-r311*d112 + r312*d111 + r313*x111*d112 - r313*x112*d111;
+n21 =-r321*d112 + r322*d111 + r323*x111*d112 - r323*x112*d111;
+n31 =-r331*d112 + r332*d111 + r333*x111*d112 - r333*x112*d111;
+
+function marker2;
+
+marker2 = 778778778778;
+
+function n12, n22, n32;
+% R*(xvp x dvp)
+n12 =-rr11*d212 + rr12*d211 + rr13*x211*d212 - rr13*x212*d211;
+n22 =-rr21*d212 + rr22*d211 + rr23*x211*d212 - rr23*x212*d211;
+n32 =-rr31*d212 + rr32*d211 + rr33*x211*d212 - rr33*x212*d211;
+
+% -------- Point track 2
+
+
 
 % ---------------------------------------------------------------------
 % Rotation constraints
