@@ -151,19 +151,33 @@ r331, r332, r333;
 %%   Rvx1p1 = rv11*x1p1 + rv12*x1p2 + rv13*x1p3;
 %%   Rvx1p2 = rv21*x1p1 + rv22*x1p2 + rv23*x1p3;
 %%   Rvx1p3 = rv31*x1p1 + rv32*x1p2 + rv33*x1p3;
-%%   
+%%   function ptfnvp;
 %%   % view v \in {2,3}, point p epipolar constraint
-%ptfnvp = xvp1*(tv2*Rvx1p3 - tv3*Rvx1p2) + xvp2*(-tv1*Rvx1p3 + tv3*Rvx1p1) + xvp3*(-tv2*Rvx1p1 + tv1*Rvx1p2)
+%%   %ptfnvp = xvp1*(tv2*Rvx1p3 - tv3*Rvx1p2) + xvp2*(-tv1*Rvx1p3 + tv3*Rvx1p1) + xvp3*(-tv2*Rvx1p1 + tv1*Rvx1p2);
 
-% TODO First, test equation for 1 point. Then copy-and-modify for remaining 2 points
-
+% Point 1, view 1
 R2x111 = r211*x111 + r212*x112 + r213*x113;
 R2x112 = r221*x111 + r222*x112 + r223*x113;
 R2x113 = r231*x111 + r232*x112 + r233*x113;
-
 function ptfn21;
 % view v, point p epipolar constraint
 ptfn21 = x211*(t22*R2x113 - t23*R2x112) + x212*(-t21*R2x113 + t23*R2x111) + x213*(-t22*R2x111 + t21*R2x112);
+
+% Point 2, view 1
+R2x121 = r211*x121 + r212*x122 + r213*x123;
+R2x122 = r221*x121 + r222*x122 + r223*x123;
+R2x123 = r231*x121 + r232*x122 + r233*x123;
+function ptfn22;
+% view v \in {2,3}, point p epipolar constraint
+ptfn22 = x221*(t22*R2x123 - t23*R2x122) + x222*(-t21*R2x123 + t23*R2x121) + x223*(-t22*R2x121 + t21*R2x122);
+
+% Point 3, view 1
+R2x131 = r211*x131 + r212*x132 + r213*x133;
+R2x132 = r221*x131 + r222*x132 + r223*x133;
+R2x133 = r231*x131 + r232*x132 + r233*x133;
+function ptfn23;
+% view v \in {2,3}, point p epipolar constraint
+ptfn23 = x231*(t22*R2x133 - t23*R2x132) + x232*(-t21*R2x133 + t23*R2x131) + x233*(-t22*R2x131 + t21*R2x132);
 
 % ---------------------------------------------------------------------
 % Rotation constraints
