@@ -134,9 +134,13 @@ end
 
 // TODO Output to Bertini etc
 
-//a(1,selected_point_ids)'
-//a(2,selected_point_ids)'
-//a(3,selected_point_ids)'
+// a(1,selected_point_ids)'
+// a(2,selected_point_ids)'
+// a(3,selected_point_ids)'
+// t2
+// t3
+// R2'(:)
+// R3'(:)
 
 
 // ---------------------------------------------------------------------
