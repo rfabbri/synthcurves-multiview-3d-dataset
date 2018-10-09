@@ -114,10 +114,20 @@ a(2,:) = X2(3,:);
 a(3,:) = X3(3,:);
 
 for p=selected_point_ids
+  disp 'non-eliminated point constraint'
   a(2,p)*x2(:,p) - a(1,p)*R2*x1(:,p) - t2 // (*)
   a(3,p)*x3(:,p) - a(1,p)*R3*x1(:,p) - t3 // (**)
+
+  // Point equations eliminating depth (essential constraint)
+  disp 'essential constraint'
+  x2(:,p)'*cross(t2,R2*x1(:,p))
+  x3(:,p)'*cross(t3,R3*x1(:,p))
 end
 // beware a(3,:) is mostly zero except at the selected points
+
+
+
+
 
 // TODO Output to Bertini etc
 

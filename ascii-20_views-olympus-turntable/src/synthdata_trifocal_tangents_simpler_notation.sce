@@ -118,8 +118,15 @@ for pi=1:3
   m3 = m(3,pi);
   
   //   TANGENT EQS
+  disp 'tangent eqs'
   e2*x2(:,p) + m2*d2(:,p) - R2*(e1*x1(:,p) + m1*d1(:,p)) // (***)
   e3*x3(:,p) + m3*d3(:,p) - R3*(e1*x1(:,p) + m1*d1(:,p)) // (****)
+
+  // Tangent eqs with depth-related scalars eliminated
+
+  disp 'tangent eqs without depth-related scalars'
+  det([R3*cross(x1(:,p),d1(:,p)) , R3*R2'*cross(x2(:,p),d2(:,p)) , cross(x3(:,p),d3(:,p))])
+  
   
 ///   
 ///   //   TANGENT EQS VIEWS 1 and 3

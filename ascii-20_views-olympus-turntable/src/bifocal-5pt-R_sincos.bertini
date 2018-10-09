@@ -20,11 +20,11 @@
 % Uncomment for evaluating on ground truth points to test if 0
 % Call as:  bertini <this_file.bertini> <this_file.groundtruth>
 % Shortcut  bertini this_file*
-CONFIG
-  TrackType:-4;
-  MPType:1;
-  Precision:128;
-END;
+% CONFIG
+%   TrackType:-4;
+%   MPType:1;
+%   Precision:128;
+% END;
 %------------------------------
 
 INPUT 
