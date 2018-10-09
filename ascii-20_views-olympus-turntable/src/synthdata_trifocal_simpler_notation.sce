@@ -129,7 +129,15 @@ end
 
 
 
+
+
+
 // TODO Output to Bertini etc
+
+//a(1,selected_point_ids)'
+//a(2,selected_point_ids)'
+//a(3,selected_point_ids)'
+
 
 // ---------------------------------------------------------------------
 // TANGENT EQUATIONS

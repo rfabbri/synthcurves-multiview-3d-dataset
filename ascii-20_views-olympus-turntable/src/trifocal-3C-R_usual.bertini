@@ -27,11 +27,11 @@
 % Uncomment for evaluating on ground truth points to test if 0
 % Call as:  bertini <this_file.bertini> <this_file.groundtruth>
 % Shortcut  bertini this_file*
-%CONFIG
-%  TrackType:-4;
-%  MPType:1;
-%  Precision:128;
-%END;
+CONFIG
+  TrackType:-4;
+  MPType:1;
+  Precision:128;
+END;
 %------------------------------
 
 INPUT 
@@ -125,8 +125,7 @@ d333 = 0;
 % Point Equations
 % First set of three equations from the first vector point equation (*) above
 variable_group 
-a11,
-a12, a13,
+a11, a12, a13,
 a21, a22, a23,
 a31, a32, a33,
 t21,
@@ -140,38 +139,6 @@ t33;
 % e_2*x2(:,p) + m_2*d2(:,p) - R_2*(e_1*x1(:,p) + m_1*d1(:,p)) // (***)
 % e{view}{point}
 
-
-
-%-------
-
-constant e13;
-e13 = 1;
-variable_group
-e23,
-e33,
-m13,
-m23,
-m33;
-
-constant e12;
-e12 = 1;
-variable_group
-e22,
-e32,
-m12,
-m22,
-m32;
-
-constant e11;
-e11 = 1;
-variable_group
-e21,  
-e31,  
-m11,
-m21,
-m31;
-
-
 % Rotations
 % try different parametrizations for rotations. Lets try standard
 
@@ -183,6 +150,35 @@ r231, r232, r233,
 r311, r312, r313,
 r321, r322, r323,
 r331, r332, r333;
+
+
+%-------
+
+variable_group
+e13,
+e23,
+e33,
+m13,
+m23,
+m33;
+
+variable_group
+e12,
+e22,
+e32,
+m12,
+m22,
+m32;
+
+variable_group
+e11,
+e21,  
+e31,  
+m11,
+m21,
+m31;
+
+
 
 % ---------------------------------------------------------------------
 
