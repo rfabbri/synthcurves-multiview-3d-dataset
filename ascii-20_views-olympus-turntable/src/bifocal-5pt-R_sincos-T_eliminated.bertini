@@ -234,11 +234,9 @@ ptdet125 = c51*cofactor1 + c52*cofactor2 + c53*cofactor3;
 % ---------------------------------------------------------------------
 % Rotation constraints
 
-function RFN1, RFN2, RFN3, RFN4, RFN5;
+function RFN1, RFN2, RFN3;
 
 RFN1 = c1*c1 + s1*s1 - 1;
 RFN2 = c2*c2 + s2*s2 - 1;
 RFN3 = c3*c3 + s3*s3 - 1;
-RFN4 = c4*c4 + s4*s4 - 1;
-RFN5 = c5*c5 + s5*s5 - 1;
 END;
