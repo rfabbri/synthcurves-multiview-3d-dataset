@@ -8,8 +8,8 @@
 %
 % Implements exactly three point equations for 2 views, using regular R matrix
 %
-% Point equations (matlab notation):
-%    a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)  views 2,1 ptfn2p*
+% Point equations (matlab notation), eliminated translation:
+% det([cross(x2(:,selected_point_ids(1)), R2*x1(:,selected_point_ids(1))) cross(x2(:,selected_point_ids(2)), R2*x1(:,selected_point_ids(2))) cross(x2(:,selected_point_ids(3)), R2*x1(:,selected_point_ids(3)))])
 %
 % See synthdata_bifocal.sce for a test of the equations with
 % numeric synthetic data (these equations are a subset of the trifocal ones in
