@@ -110,6 +110,9 @@ end
 // TODO Output to Bertini etc
 
 
+disp 'Point equations eliminating rotations'
+
+det([cross(x2(:,selected_point_ids(1)), R2*x1(:,selected_point_ids(1))) cross(x2(:,selected_point_ids(2)), R2*x1(:,selected_point_ids(2))) cross(x2(:,selected_point_ids(3)), R2*x1(:,selected_point_ids(3)))])
 
 psi = atan(R2(3,2),R2(3,3));
 phi = atan(-R2(3,1), norm(R2(3,2:3)))
