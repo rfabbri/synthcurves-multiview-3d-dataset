@@ -122,14 +122,15 @@ for p=selected_point_ids
   disp 'essential constraint'
   x2(:,p)'*cross(t2,R2*x1(:,p))
   x3(:,p)'*cross(t3,R3*x1(:,p))
+
 end
 // beware a(3,:) is mostly zero except at the selected points
 
+disp 'Point equations eliminating rotations'
 
+det([cross(x2(:,selected_point_ids(1)), R2*x1(:,selected_point_ids(1))) cross(x2(:,selected_point_ids(2)), R2*x1(:,selected_point_ids(2))) cross(x2(:,selected_point_ids(3)), R2*x1(:,selected_point_ids(3)))])
 
-
-
-
+det([cross(x3(:,selected_point_ids(1)), R3*x1(:,selected_point_ids(1))) cross(x3(:,selected_point_ids(2)), R3*x1(:,selected_point_ids(2))) cross(x3(:,selected_point_ids(3)), R3*x1(:,selected_point_ids(3)))])
 
 
 // TODO Output to Bertini etc

@@ -27,11 +27,11 @@
 % Uncomment for evaluating on ground truth points to test if 0
 % Call as:  bertini <this_file.bertini> <this_file.groundtruth>
 % Shortcut  bertini this_file*
-CONFIG
-  TrackType:-4;
-  MPType:1;
-  Precision:128;
-END;
+ CONFIG
+   TrackType:-4;
+   MPType:1;
+   Precision:128;
+ END;
 %------------------------------
 
 INPUT 
@@ -145,15 +145,7 @@ r321, r322, r323,
 r331, r332, r333;
 
 % ---------------------------------------------------------------------
-
-% Template for view v. Substitute v for 1,2.
-
-%%   Rvx1p1 = rv11*x1p1 + rv12*x1p2 + rv13*x1p3;
-%%   Rvx1p2 = rv21*x1p1 + rv22*x1p2 + rv23*x1p3;
-%%   Rvx1p3 = rv31*x1p1 + rv32*x1p2 + rv33*x1p3;
-%%   function ptfnvp;
-%%   % view v \in {2,3}, point p epipolar constraint
-%%   %ptfnvp = xvp1*(tv2*Rvx1p3 - tv3*Rvx1p2) + xvp2*(-tv1*Rvx1p3 + tv3*Rvx1p1) + xvp3*(-tv2*Rvx1p1 + tv1*Rvx1p2);
+% Point constraints
 
 % -------- View 2
 % Point 1
@@ -207,6 +199,17 @@ R3x133 = r331*x131 + r332*x132 + r333*x133;
 function ptfn33;
 % view v \in {2,3}, point p epipolar constraint
 ptfn33 = x331*(t32*R3x133 - t33*R3x132) + x332*(-t31*R3x133 + t33*R3x131) + x333*(-t32*R3x131 + t31*R3x132);
+
+% ---------------------------------------------------------------------
+% 2 Crosstalk constraints
+
+function marker;
+marker = 777767776;
+
+function csfn12;
+
+csfn12 = ( (R3x113 + t33)*x311 - R3x111 ) * ( (R2x123 + t23)*x221 - R2x121 ) - 
+         ( (R2x113 + t23)*x211 - R2x111 ) * ( (R3x123 + t33)*x321 - R3x121 );
 
 % ---------------------------------------------------------------------
 % Tangent constraints
