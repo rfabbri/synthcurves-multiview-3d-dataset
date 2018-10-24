@@ -11,11 +11,19 @@
 % Point equations (matlab notation):
 %    a(2,p)*x_2(:,p) - a(1,p)*R_2*x_1(:,p) - t_2 // (*)  views 2,1 ptfn2p*
 %    a(3,p)*x_3(:,p) - a(1,p)*R_3*x_1(:,p) - t_3 // (**) views 3,1 ptfn3p*
-
+%
+% Crosstalk equations (matlab notation):
+%    Here we use 1 crosstalk eq per point to include scale ratio as unknown.
+%    This equations makes sure the two epipolar constraints per point in two
+%    views are consistent with each other and is more than using an epipolar
+%    equation between views 2 and 3, which we not only don't need, but would
+%    lack the proper constraint
+%
 % Tangent equations
 %    e_2*x_2(:,p) + m_2*d_2(:,p) - R_2*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (***)  views 2,1 tgfn2p*
 %    e_3*x_3(:,p) + m_3*d_3(:,p) - R_3*(e_1*x_1(:,p) + m_1*d_1(:,p)) // (****) views 3,1 tgfn3p*
 %    where e_v = e_v(p), and also m_v
+% 
 %
 % See synthdata_trifocal_simpler_notation.sce for a test of the equations with
 % numeric synthetic data
@@ -27,11 +35,11 @@
 % Uncomment for evaluating on ground truth points to test if 0
 % Call as:  bertini <this_file.bertini> <this_file.groundtruth>
 % Shortcut  bertini this_file*
- CONFIG
-   TrackType:-4;
-   MPType:1;
-   Precision:128;
- END;
+% CONFIG
+%   TrackType:-4;
+%   MPType:1;
+%   Precision:128;
+% END;
 %------------------------------
 
 INPUT 
@@ -123,7 +131,7 @@ d333 = 0;
 %
 % -------------------
 % Point Equations
-variable_group 
+hom_variable_group 
 t21,
 t22,
 t23,
@@ -202,14 +210,37 @@ ptfn33 = x331*(t32*R3x133 - t33*R3x132) + x332*(-t31*R3x133 + t33*R3x131) + x333
 
 % ---------------------------------------------------------------------
 % 2 Crosstalk constraints
+% - we keep the crosstalk equations one per point without eliminating scale ratio
+% - eliminating scale ratio would give us one less equation in one less
+% variable. We have to insert sine and cosine at this point TODO: test
 
-function marker;
-marker = 777767776;
+%function marker;
+%marker = 777767776;
 
-function csfn12;
+% Point 1 (scale ratio included - so 1 eq per point here
+function csfn1, csfn2, csfn3;
 
-csfn12 = ( (R3x113 + t33)*x311 - R3x111 ) * ( (R2x123 + t23)*x221 - R2x121 ) - 
-         ( (R2x113 + t23)*x211 - R2x111 ) * ( (R3x123 + t33)*x321 - R3x121 );
+%csfn12 = ( (R3x113 + t33)*x311 - R3x111 ) * ( (R2x123 + t23)*x221 - R2x121 ) - 
+%         ( (R2x113 + t23)*x211 - R2x111 ) * ( (R3x123 + t33)*x321 - R3x121 );
+
+csfn1_rotfactor2 = R2x113*x211 - R2x111;
+csfn1_rotfactor3 = R3x113*x311 - R3x111;
+csfn1_tfactor3 = t31 - t33*x311;
+csfn1_tfactor2 = t21 - t23*x211;
+csfn1 = csfn1_rotfactor2*csfn1_tfactor3 - csfn1_rotfactor3*csfn1_tfactor2;
+
+csfn2_rotfactor2 = R2x123*x221 - R2x121;
+csfn2_rotfactor3 = R3x123*x321 - R3x121;
+csfn2_tfactor3 = t31 - t33*x321;
+csfn2_tfactor2 = t21 - t23*x221;
+csfn2 = csfn2_rotfactor2*csfn2_tfactor3 - csfn2_rotfactor3*csfn2_tfactor2;
+
+csfn3_rotfactor2 = R2x133*x231 - R2x131;
+csfn3_rotfactor3 = R3x133*x331 - R3x131;
+csfn3_tfactor3 = t31 - t33*x331;
+csfn3_tfactor2 = t21 - t23*x231;
+csfn3 = csfn3_rotfactor2*csfn3_tfactor3 - csfn3_rotfactor3*csfn3_tfactor2;
+
 
 % ---------------------------------------------------------------------
 % Tangent constraints
@@ -292,9 +323,9 @@ n313 = -d332;
 n323 = d331;
 n333 = x331*d332 - x332*d331;
 
-function tgfn3;
+%function tgfn3;
 
-tgfn3 = n311*n322*n333 - n311*n323*n332 + n312*n323*n331 - n312*n321*n333 + n313*n321*n332 - n313*n322*n331;
+%tgfn3 = n311*n322*n333 - n311*n323*n332 + n312*n323*n331 - n312*n321*n333 + n313*n321*n332 - n313*n322*n331;
 
 
 % ---------------------------------------------------------------------
@@ -308,7 +339,7 @@ rfn24,
 rfn25,
 rfn26,
 
-rfn27,
+%rfn27,
 
 rfn31,
 rfn32,
@@ -316,9 +347,9 @@ rfn33,
 
 rfn34,
 rfn35,
-rfn36,
+rfn36;
 
-rfn37;
+%rfn37;
 
 % rfn{view id}{constraint id}
 rfn21 = r211^2 + r221^2 + r231^2 - 1;
@@ -327,13 +358,13 @@ rfn23 = r213^2 + r223^2 + r233^2 - 1; %----
 rfn24 = r211*r212 + r221*r222 + r231*r232;
 rfn25 = r211*r213 + r221*r223 + r231*r233;
 rfn26 = r212*r213 + r222*r223 + r232*r233; %----
-rfn27 = r211*r222*r233 - r211*r223*r232 + r212*r223*r231 - r212*r221*r233 + r213*r221*r232 - r213*r231*r222 - 1;
+%rfn27 = r211*r222*r233 - r211*r223*r232 + r212*r223*r231 - r212*r221*r233 + r213*r221*r232 - r213*r231*r222 - 1;
 rfn31 = r311^2 + r321^2 + r331^2 - 1; %----
 rfn32 = r312^2 + r322^2 + r332^2 - 1;
 rfn33 = r313^2 + r323^2 + r333^2 - 1; %----
 rfn34 = r311*r312 + r321*r322 + r331*r332;
 rfn35 = r311*r313 + r321*r323 + r331*r333;
 rfn36 = r312*r313 + r322*r323 + r332*r333; %----
-rfn37 = r311*r322*r333 - r311*r323*r332 + r312*r323*r331 - r312*r321*r333 + r313*r321*r332 - r313*r331*r322 - 1;
+%rfn37 = r311*r322*r333 - r311*r323*r332 + r312*r323*r331 - r312*r321*r333 + r313*r321*r332 - r313*r331*r322 - 1;
 
 END;
