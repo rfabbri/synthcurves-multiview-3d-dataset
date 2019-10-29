@@ -1,4 +1,4 @@
-# Synthetic Curves Multiview Dataset (Beta)
+# Synthetic Curves Multiview Dataset
 <img src="data-sphere-new-v2.png " width="215" />
 <img src="synthcurves-dataset-snapshot.png" width="215" height="84" />
 
