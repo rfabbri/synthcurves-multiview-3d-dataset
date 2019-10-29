@@ -16,6 +16,8 @@ Synthetic Curves Dataset
 
 
 ## Details
+
+### Spherical dataset 
 The analytic space
 curves shown are synthesized in a 4x4$ cm^3 volume and projected to 100 cameras and are sampled to get
 5117 potential data points/tangents that are the projections of the same 3D
