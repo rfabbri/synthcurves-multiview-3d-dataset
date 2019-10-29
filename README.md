@@ -2,19 +2,40 @@
 <img src="data-sphere-new-v2.png " width="215" />
 <img src="synthcurves-dataset-snapshot.png" width="215" height="84" />
 
-
-## UNDER DEVELOPMENT
+## Summary
 
 Synthetic Curves Dataset
 
-- 40 curves:Lines, circles, ellipses, helices, and another space curve with complicated torsion.
+- 40 curves: Lines, circles, ellipses, helices, and another space curve with complicated torsion, sampled to generate 5117 points with attributed orientation, curvature and torsion
 - Cameras in three turntable geometries:
-  - Sherical video camera configuration (small focal length)
+  - Sherical video camera configuration (small focal length): 100 views
   - Turntable video camera configuration (small focal length)
   - Micro-CT configuration (objects lying between optical center and CCD)
 - Space curves are sampled and projected to subpixel edgels (tangent and other differential-geometric information) to generate a video. The differential geometry arises by projecting the 3D measurements according to "Multiview Differential geometry of Curves", IJCV 2016.
-- Each image is 500x400px
+- Each image is 500x400 px, but samples are subpixel
 
+
+## Details
+The analytic space
+curves shown are synthesized in a 4x4$ cm^3 volume and projected to 100 cameras and are sampled to get
+5117 potential data points/tangents that are the projections of the same 3D
+analytic points and tangents.  Camera centers are randomly sampled around an
+average sphere around the scene along normally distributed radii of mean
+1m and sigma = 10mm. Rotations are constructed via normally distributed look-at
+directions with mean along the sphere radius looking to the object, and sigma 1
+0.01 rad such that the scene does not leave the viewport, followed
+by uniformly distributed roll. This sampling is filtered such that no two
+cameras are within 15 degrees of each other.  Each camera encompasses a
+500 x 400 pixel viewport, where the entire dataset is always
+visible at sub-pixel precision with no more than one sample per pixel.  These
+curve samples are then degraded with noise and mismatches.  The image location
+and tangent orientation are perturbed to simulate measurement noise in the range
+of 0-2 pixels in location and 0-10 degrees in orientation. 
+We add uniform noise to each point coordinate in the range
+(-Delta_pos, Delta_pos), with Delta_pos in {0,0.5,1,2}, and add uniform angular
+noise to the tangent vector in the range 
+(-Delta_theta, Delta_theta), for Delta_theta in {0, 0.5,
+1, 5, 10} degrees.  
 
 ## Download
 [Git LFS](https://git-lfs.github.com) (Large File Storage) is *required* for
@@ -35,8 +56,7 @@ ascii-20_views-olympus-turntable/    txt's for 20 views, cams and point-tangents
 ascii-20_views-olympus-turntable/src/*.cxx    snapshot of original VXD code used to generate the data
 ascii-20_views-olympus-turntable/src/*.sce    snapshot of original Scilab code used to validate the data
 
-
-Same scheme for the spherical dataset folder:
+Same naming scheme for the spherical dataset folder:
 spherical-ascii-100_views-perturb-radius_sigma10-normal_sigma0_01rad-minsep_15deg-no_two_cams_colinear_with_object
 
 misc/
