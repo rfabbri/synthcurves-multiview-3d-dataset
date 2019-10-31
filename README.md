@@ -4,8 +4,6 @@
 
 ## Summary
 
-Synthetic Curves Dataset
-
 - 40 curves: Lines, circles, ellipses, helices, and another space curve with complicated torsion, sampled to generate 5117 points with attributed orientation, curvature and torsion
 - Cameras in three geometries:
   - Sherical video camera configuration: '''100 views'''
