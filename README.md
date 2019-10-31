@@ -4,9 +4,9 @@
 
 ## Overview
 
-- 40 curves: Lines, circles, ellipses, helices, and another space curve with complicated torsion, sampled to generate 5117 points with attributed orientation, curvature and torsion
+- **40 curves**: Lines, circles, ellipses, helices, and another space curve with complicated torsion, sampled to generate **5117 points** with attributed orientation, curvature and torsion
 - Cameras in three geometries:
-  - Sherical video camera configuration: '''100 views'''
+  - Sherical video camera configuration: **100 views**
   - Turntable video camera configuration
   - Micro-CT configuration (objects lying between optical center and CCD)
 - Space curves are sampled and projected to subpixel edgels (tangent and other differential-geometric information) to generate a video. The differential geometry arises by projecting the 3D measurements according to "Multiview Differential geometry of Curves", IJCV 2016.
