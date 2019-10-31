@@ -2,7 +2,7 @@
 <img src="data-sphere-new-v2.png " width="215" />
 <img src="synthcurves-dataset-snapshot.png" width="215" height="84" />
 
-## Summary
+## Overview
 
 - 40 curves: Lines, circles, ellipses, helices, and another space curve with complicated torsion, sampled to generate 5117 points with attributed orientation, curvature and torsion
 - Cameras in three geometries:
