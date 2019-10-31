@@ -17,12 +17,12 @@
 
 ### Spherical dataset 
 The analytic space
-curves shown are synthesized in a 4x4$ cm^3 volume and projected to 100 cameras and are sampled to get
+curves shown are synthesized in a 4x4 cm^3 volume and projected to 100 cameras and are sampled to get
 5117 potential data points/tangents that are the projections of the same 3D
 analytic points and tangents.  Camera centers are randomly sampled around an
 average sphere around the scene along normally distributed radii of mean
 1m and sigma = 10mm. Rotations are constructed via normally distributed look-at
-directions with mean along the sphere radius looking to the object, and sigma 1
+directions with mean along the sphere radius looking to the object, and sigma
 0.01 rad such that the scene does not leave the viewport, followed
 by uniformly distributed roll. This sampling is filtered such that no two
 cameras are within 15 degrees of each other.  Each camera encompasses a
